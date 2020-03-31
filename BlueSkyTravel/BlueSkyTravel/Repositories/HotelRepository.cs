@@ -6,7 +6,7 @@ using BlueSkyTravel.Models;
 
 namespace BlueSkyTravel.Repositories
 {
-    public class HotelRepository : Repository<Hotel>, IRepository<Hotel>
+    public class HotelRepository : Repository<Hotel>
     {
         public HotelRepository(BlueSkyContext context) : base(context)
         {

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlueSkyTravel.Models;
+using BlueSkyTravel.Repositories;
 
 
 
@@ -29,6 +30,12 @@ namespace BlueSkyTravel
 
             services.AddMvc();
             services.AddDbContext<BlueSkyContext>();
+            services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
+            services.AddScoped<IRepository<ForFun>, ForFunRepository>();
+            services.AddScoped<IRepository<Hotel>, HotelRepository>();
+            services.AddScoped<IRepository<Flight>, FlightRepository>();
+            services.AddScoped<IRepository<Vote>, VoteRepository>();
+
 
         }
 
