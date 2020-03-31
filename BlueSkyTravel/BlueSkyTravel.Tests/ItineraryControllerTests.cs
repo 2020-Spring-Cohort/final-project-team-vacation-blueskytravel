@@ -59,5 +59,7 @@ namespace BlueSkyTravel.Tests
 
             Assert.Equal(expectedItinerary, result.Model);
         }
+
+     
     }
 }
