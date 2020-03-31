@@ -19,14 +19,14 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Itinerary
-        public IActionResult Index()
+        public ViewResult Index()
         {
             var model = itineraryRepo.GetAll();
             return View(model);
         }
 
         // GET: Itinerary/Details/5
-        public IActionResult Details(int id)
+        public ViewResult Details(int id)
         {
             var model = itineraryRepo.GetById(id);
             return View(model);
@@ -34,7 +34,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Itinerary/Create
         [HttpGet]
-        public IActionResult Create()
+        public ViewResult Create()
         {
             return View();
         }
@@ -55,11 +55,9 @@ namespace BlueSkyTravel.Controllers
             return View(model);
         }
 
-
-
         // POST: Itinerary/Edit/5
         [HttpPost]
-        public ActionResult Update(Itinerary itinerary)
+        public IActionResult Update(Itinerary itinerary)
         {
             itineraryRepo.Update(itinerary);
             return RedirectToAction("Detail", "Itinerary", new { id = itinerary.Id });
@@ -75,7 +73,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Itinerary/Delete/5
         [HttpPost]
-        public ActionResult Delete(Itinerary itinerary)
+        public IActionResult Delete(Itinerary itinerary)
         {
             itineraryRepo.Delete(itinerary);
             return RedirectToAction("Index", "Itinerary");
