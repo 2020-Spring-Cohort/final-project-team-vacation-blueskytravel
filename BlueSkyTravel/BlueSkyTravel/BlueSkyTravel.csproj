@@ -4,6 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Models\NewFile.txt" />
+    <None Remove="Models\NewFile1.txt" />
+  </ItemGroup>
+
 
 
 </Project>
