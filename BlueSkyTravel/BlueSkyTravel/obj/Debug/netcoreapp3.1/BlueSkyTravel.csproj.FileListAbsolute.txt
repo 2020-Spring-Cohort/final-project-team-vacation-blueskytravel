@@ -56,3 +56,15 @@ C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTrave
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.deps.json
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.runtimeconfig.json
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.runtimeconfig.dev.json
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.dll
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.pdb
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.Views.dll
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\BlueSkyTravel.Views.pdb
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.Views.pdb
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.dll
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.pdb
+C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.genruntimeconfig.cache
