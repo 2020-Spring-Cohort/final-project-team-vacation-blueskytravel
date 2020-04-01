@@ -60,7 +60,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Update(ForFun forFun)
         {
             funRepo.Update(forFun);
-            return RedirectToAction("Details", "forFun", new { id = forFun.Id });
+            return RedirectToAction("Details", "ForFun", new { id = forFun.Id });
         }
 
         // GET: forFun/Delete/5
