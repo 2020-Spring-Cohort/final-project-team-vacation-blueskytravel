@@ -2,92 +2,84 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlueSkyTravel.Models;
+using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BlueSkyTravel.Controllers
 {
     public class ForFunController : Controller
     {
-        // GET: ForFun
-        public ActionResult Index()
+        IRepository<ForFun> funRepo;
+
+        public ForFunController(IRepository<ForFun> funRepo)
+        {
+            this.funRepo = funRepo;
+        }
+        // GET: forFun
+        public ViewResult Index()
+        {
+            var model = funRepo.GetAll();
+            return View(model);
+        }
+
+        // GET: forFun/Details/5
+        public ViewResult Details(int id)
+        {
+            var model = funRepo.GetById(id);
+            return View(model);
+        }
+
+        // GET: forFun/Create
+        [HttpGet]
+        public ViewResult Create()
         {
             return View();
         }
 
-        // GET: ForFun/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ForFun/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ForFun/Create
+        // POST: forFun/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(ForFun forFun)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            funRepo.Create(forFun);
+            return RedirectToAction("Index");
         }
 
-        // GET: ForFun/Edit/5
-        public ActionResult Edit(int id)
+        // GET: forFun/Edit/5
+        [HttpGet]
+        public ViewResult Update(int id)
         {
-            return View();
+            ForFun model = funRepo.GetById(id);
+            return View(model);
         }
 
-        // POST: ForFun/Edit/5
+        // POST: forFun/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public IActionResult Update(ForFun forFun)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            funRepo.Update(forFun);
+            return RedirectToAction("Details", "forFun", new { id = forFun.Id });
         }
 
-        // GET: ForFun/Delete/5
-        public ActionResult Delete(int id)
+        // GET: forFun/Delete/5
+        [HttpGet]
+        public ViewResult Delete(int id)
         {
-            return View();
+            ForFun model = funRepo.GetById(id);
+            return View(model);
         }
 
-        // POST: ForFun/Delete/5
+        // POST: forFun/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(ForFun forFun)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            funRepo.Delete(forFun);
+            return RedirectToAction("Index", "ForFun");
         }
+
+
+
     }
 }
