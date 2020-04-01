@@ -612,9 +612,7 @@ C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\B
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.csproj.CopyComplete
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.pdb
-C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.genruntimeconfig.cache
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\NSubstitute.dll
-C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.csproj.CoreCompileInputs.cache
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
