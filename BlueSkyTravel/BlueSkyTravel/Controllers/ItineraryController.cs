@@ -60,7 +60,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Update(Itinerary itinerary)
         {
             itineraryRepo.Update(itinerary);
-            return RedirectToAction("Detail", "Itinerary", new { id = itinerary.Id });
+            return RedirectToAction("Details", "Itinerary", new { id = itinerary.Id });
         }
 
         // GET: Itinerary/Delete/5

@@ -66,23 +66,16 @@ namespace BlueSkyTravel.Controllers
         [HttpGet]
         public ViewResult Delete(int id)
         {
-            return View();
+            Flight model = flightRepo.GetById(id);
+            return View(model);
         }
 
         // POST: Flight/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(Flight flight)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            flightRepo.Delete(flight);
+            return RedirectToAction("Index", "Flight");
         }
     }
 }

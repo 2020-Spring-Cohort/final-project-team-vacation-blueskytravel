@@ -686,3 +686,5 @@ C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTra
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.csproj.CoreCompileInputs.cache
+C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel.Tests\obj\Debug\netcoreapp3.1\BlueSkyTravel.Tests.genruntimeconfig.cache
