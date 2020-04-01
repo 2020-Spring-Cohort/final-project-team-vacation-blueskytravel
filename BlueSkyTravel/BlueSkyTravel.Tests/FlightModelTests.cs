@@ -12,7 +12,7 @@ namespace BlueSkyTravel.Tests
 
         public FlightModelTests()
         {
-            myFlight = new Flight(1, "WCCI Air", "A122", DateTime.Today, DateTime.Today, 500.00);
+            myFlight = new Flight(1, "WCCI Air", "A122", DateTime.Today, DateTime.Today, 500.00, 1);
         }
 
         [Fact]

@@ -68,7 +68,7 @@ namespace BlueSkyTravel
                     IsApproved = false,
                     Location = "Paris, France",
                     Name = "Disneyland",
-                    ItineraryId = 1,
+                    ItineraryId = 1
                 });
 
             modelBuilder.Entity<Vote>().HasData(
@@ -76,6 +76,7 @@ namespace BlueSkyTravel
               {
                   Id = 1,
                   VoteChoice = true,
+                  ForFunId = 1
               });
 
             base.OnModelCreating(modelBuilder);

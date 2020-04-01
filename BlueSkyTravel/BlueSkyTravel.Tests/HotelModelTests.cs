@@ -12,7 +12,7 @@ namespace BlueSkyTravel.Tests
 
         public HotelModelTests()
         {
-            myHotel = new Hotel(1, "42069 High Street", DateTime.Today, DateTime.Today, 200.00);
+            myHotel = new Hotel(1, "42069 High Street", DateTime.Today, DateTime.Today, 200.00, 1);
         }
 
         [Fact]

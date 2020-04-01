@@ -12,6 +12,8 @@ namespace BlueSkyTravel.Models
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
         public double NightlyRate { get; set; }
+        public virtual Itinerary Itinerary { get; set; }
+        public virtual int ItineraryId { get; set; }
 
 
         public Hotel()
@@ -19,13 +21,14 @@ namespace BlueSkyTravel.Models
 
         }
 
-        public Hotel(int id, string address, DateTime checkIn, DateTime checkOut, double nightlyRate)
+        public Hotel(int id, string address, DateTime checkIn, DateTime checkOut, double nightlyRate, int itineraryId)
         {
             Id = id;
             Address = address;
             CheckIn = checkIn;
             CheckOut = checkOut;
             NightlyRate = nightlyRate;
+            ItineraryId = itineraryId;
         }
     }
 }

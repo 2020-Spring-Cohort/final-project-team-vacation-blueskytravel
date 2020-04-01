@@ -16,7 +16,7 @@ namespace BlueSkyTravel.Models
 
         public virtual Itinerary Itinerary { get; set; }
         public virtual int ItineraryId { get; set; }
-        public ICollection<Vote> Votes { get; set; }
+        public virtual ICollection<Vote> Votes { get; set; }
 
         public ForFun()
         {
