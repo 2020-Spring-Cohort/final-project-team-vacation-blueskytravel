@@ -275,7 +275,6 @@ C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\B
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\staticwebassets\BlueSkyTravel.StaticWebAssets.xml
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.pdb
-C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.genruntimeconfig.cache
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -349,7 +348,6 @@ C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\B
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.csproj.CoreCompileInputs.cache
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Index.cshtml.g.cs
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -426,3 +424,4 @@ C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTra
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Index.cshtml.g.cs
+C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Details.cshtml.g.cs
