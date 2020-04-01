@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlueSkyTravel.Models;
+using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,21 +15,24 @@ namespace BlueSkyTravel.Controllers
 
         public HotelController(IRepository<Hotel> hotelRepo)
         {
-            this.h = itineraryRepo;
+            this.hotelRepo = hotelRepo;
         }
         // GET: Hotel
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return View();
+            var model = hotelRepo.GetAll();
+            return View(model);
         }
 
         // GET: Hotel/Details/5
-        public ActionResult Details(int id)
+        public ViewResult Details(int id)
         {
-            return View();
+            var model = hotelRepo.GetById(id);
+            return View(model);
         }
 
         // GET: Hotel/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -35,65 +40,43 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Hotel/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(Hotel hotel)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            hotelRepo.Create(hotel);
+            return RedirectToAction("Index");
         }
 
         // GET: Hotel/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ViewResult Update(int id)
         {
-            return View();
+            Hotel model = hotelRepo.GetById(id);
+            return View(model);
         }
 
         // POST: Hotel/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+       
+        public IActionResult Update(Hotel hotel)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            hotelRepo.Update(hotel);
+            return RedirectToAction("Details", "Hotel", new { id = hotel.Id });
         }
 
         // GET: Hotel/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            Hotel model = hotelRepo.GetById(id);
+            return View(model);
         }
 
         // POST: Hotel/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(Hotel hotel)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            hotelRepo.Delete(hotel);
+            return RedirectToAction("Index", "Hotel");
         }
     }
 }
