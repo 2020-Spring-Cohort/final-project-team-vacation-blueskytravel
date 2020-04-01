@@ -435,3 +435,12 @@ C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\B
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Delete.cshtml.g.cs
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Update.cshtml.g.cs
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Create.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Create.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Delete.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Details.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Index.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Update.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Create.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Delete.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Details.cshtml.g.cs
+C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Update.cshtml.g.cs
