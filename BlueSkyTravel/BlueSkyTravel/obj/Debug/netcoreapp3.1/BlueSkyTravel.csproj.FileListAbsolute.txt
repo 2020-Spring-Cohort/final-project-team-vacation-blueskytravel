@@ -434,3 +434,4 @@ C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\B
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Details.cshtml.g.cs
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Delete.cshtml.g.cs
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Update.cshtml.g.cs
+C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Flight\Create.cshtml.g.cs
