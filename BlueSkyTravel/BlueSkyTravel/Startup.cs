@@ -4,10 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BlueSkyTravel.Models;
+using BlueSkyTravel.Repositories;
+
+
 
 namespace BlueSkyTravel
 {
@@ -23,7 +27,16 @@ namespace BlueSkyTravel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+
+            services.AddMvc();
+            services.AddDbContext<BlueSkyContext>();
+            services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
+            services.AddScoped<IRepository<ForFun>, ForFunRepository>();
+            services.AddScoped<IRepository<Hotel>, HotelRepository>();
+            services.AddScoped<IRepository<Flight>, FlightRepository>();
+            services.AddScoped<IRepository<Vote>, VoteRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +63,7 @@ namespace BlueSkyTravel
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Itinerary}/{action=Index}/{id?}");
             });
         }
     }
