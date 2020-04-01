@@ -425,3 +425,4 @@ C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTra
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joshu\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Index.cshtml.g.cs
 C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Details.cshtml.g.cs
+C:\Users\We Can Code IT\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Create.cshtml.g.cs
