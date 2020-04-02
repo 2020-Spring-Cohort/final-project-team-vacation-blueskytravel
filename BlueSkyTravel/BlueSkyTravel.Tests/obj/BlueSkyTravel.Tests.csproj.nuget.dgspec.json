@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {}
+    "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {
+    "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
         "projectName": "BlueSkyTravel.Tests",
-        "projectPath": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
-        "packagesPath": "C:\\Users\\We Can Code IT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\obj\\",
+        "projectPath": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
+        "packagesPath": "C:\\Users\\burns\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\We Can Code IT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\burns\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
-                "projectPath": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj"
+              "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
+                "projectPath": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj"
               }
             }
           }
@@ -85,17 +85,17 @@
         }
       }
     },
-    "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
+    "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
+        "projectUniqueName": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
         "projectName": "BlueSkyTravel",
-        "projectPath": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
-        "packagesPath": "C:\\Users\\We Can Code IT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\We Can Code IT\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\obj\\",
+        "projectPath": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
+        "packagesPath": "C:\\Users\\burns\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burns\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\We Can Code IT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\burns\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -13,6 +13,8 @@ namespace BlueSkyTravel.Models
         public DateTime ArrivalDate{ get; set; }
         public DateTime DepartureDate { get; set; }
         public double Fare { get; set; }
+        public virtual Itinerary Itinerary { get; set; }
+        public virtual int ItineraryId { get; set; }
 
 
         public Flight()
@@ -20,7 +22,7 @@ namespace BlueSkyTravel.Models
 
         }
 
-        public Flight(int id, string airlineName, string flightNumber, DateTime arrivalDate, DateTime departureDate, double fare)
+        public Flight(int id, string airlineName, string flightNumber, DateTime arrivalDate, DateTime departureDate, double fare, int itineraryId)
         {
             Id = id;
             AirlineName = airlineName;
@@ -28,6 +30,7 @@ namespace BlueSkyTravel.Models
             ArrivalDate = arrivalDate;
             DepartureDate = departureDate;
             Fare = fare;
+            ItineraryId = itineraryId;
         }
 
 

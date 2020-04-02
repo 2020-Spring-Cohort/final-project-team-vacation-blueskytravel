@@ -63,7 +63,7 @@ namespace BlueSkyTravel
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Itinerary}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

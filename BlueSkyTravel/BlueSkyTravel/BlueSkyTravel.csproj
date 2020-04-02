@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Controllers\NewFile.txt" />
     <None Remove="Models\NewFile.txt" />
     <None Remove="Models\NewFile1.txt" />
   </ItemGroup>

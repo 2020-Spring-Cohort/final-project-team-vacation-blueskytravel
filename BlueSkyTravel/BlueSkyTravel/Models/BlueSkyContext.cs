@@ -40,10 +40,12 @@ namespace BlueSkyTravel
                 new Hotel
                 {
                     Id = 1,
+                    Name = "Holiday Inn",
                     Address = "221B Baker Street",
                     CheckIn = DateTime.Today,
                     CheckOut = DateTime.Today,
-                    NightlyRate = 150.00
+                    NightlyRate = 150.00,
+                    ItineraryId = 1
                 });
 
             modelBuilder.Entity<Flight>().HasData(
@@ -54,7 +56,8 @@ namespace BlueSkyTravel
                     FlightNumber = "WCCI-2020",
                     ArrivalDate = DateTime.Today,
                     DepartureDate = DateTime.Today,
-                    Fare = 426.00
+                    Fare = 426.00,
+                    ItineraryId = 1
                 });
 
             modelBuilder.Entity<ForFun>().HasData(
@@ -65,7 +68,8 @@ namespace BlueSkyTravel
                     Fare = 100.00,
                     IsApproved = false,
                     Location = "Paris, France",
-                    Name = "Disneyland"
+                    Name = "Disneyland",
+                    ItineraryId = 1
                 });
 
             modelBuilder.Entity<Vote>().HasData(
@@ -73,6 +77,7 @@ namespace BlueSkyTravel
               {
                   Id = 1,
                   VoteChoice = true,
+                  ForFunId = 1
               });
 
             base.OnModelCreating(modelBuilder);
