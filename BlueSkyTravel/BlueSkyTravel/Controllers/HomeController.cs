@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BlueSkyTravel.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
