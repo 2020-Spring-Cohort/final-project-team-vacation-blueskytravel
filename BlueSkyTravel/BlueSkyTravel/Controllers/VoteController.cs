@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlueSkyTravel.Models;
+using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,19 +11,28 @@ namespace BlueSkyTravel.Controllers
 {
     public class VoteController : Controller
     {
-        // GET: Vote
-        public ActionResult Index()
+        IRepository<Vote> voteRepo;
+
+        public VoteController(IRepository<Vote> voteRepo)
         {
-            return View();
+            this.voteRepo = voteRepo;
+        }
+        // GET: Vote
+        public ViewResult Index()
+        {
+            var model = voteRepo.GetAll();
+            return View(model);
         }
 
         // GET: Vote/Details/5
-        public ActionResult Details(int id)
+        public ViewResult Details(int id)
         {
-            return View();
+            var model = voteRepo.GetById(id);
+            return View(model);
         }
 
         // GET: Vote/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -29,65 +40,43 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Vote/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(Vote vote)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            voteRepo.Create(vote);
+            return RedirectToAction("Index");
         }
 
         // GET: Vote/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ViewResult Update(int id)
         {
-            return View();
+            Vote model = voteRepo.GetById(id);
+            return View(model);
         }
 
         // POST: Vote/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+        public IActionResult Update(Vote vote)
+        {
+            voteRepo.Update(vote);
+            return RedirectToAction("Details", "Vote", new { id = vote.Id });
         }
 
         // GET: Vote/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            Vote model = voteRepo.GetById(id);
+            return View(model);
         }
 
         // POST: Vote/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(Vote vote)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            voteRepo.Delete(vote);
+            return RedirectToAction("Index", "Vote");
         }
     }
 }
