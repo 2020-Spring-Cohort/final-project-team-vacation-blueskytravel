@@ -774,3 +774,4 @@ C:\Users\Tom\source\repos\oauthfinal\final-project-team-vacation-blueskytravel\B
 C:\Users\Tom\source\repos\oauthfinal\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.csproj.CoreCompileInputs.cache
 C:\Users\Tom\source\repos\oauthfinal\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Tom\source\repos\oauthfinal\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Tom\source\repos\oauthfinal\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.csprojAssemblyReference.cache
