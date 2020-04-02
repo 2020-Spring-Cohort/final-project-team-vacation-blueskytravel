@@ -20,11 +20,12 @@
                     <input class="form-check-input" asp-for="VoteChoice" /> @Html.DisplayNameFor(model => model.VoteChoice)
                 </label>
             </div>
+
             <div class="form-group">
                 <label asp-for="ForFunId" class="control-label"></label>
-                <sele asp-for="ForFunId" class="form-control" asp-items="ViewBag.ForFunId"></selec>
+                <input asp-for="ForFunId" class="form-control" asp-items="ViewBag.ForFunId"></input>
             </div>
-            <div class="form-group">
+                     <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
