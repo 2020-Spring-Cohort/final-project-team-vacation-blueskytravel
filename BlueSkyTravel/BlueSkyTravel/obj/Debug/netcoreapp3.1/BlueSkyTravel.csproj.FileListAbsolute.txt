@@ -543,3 +543,5 @@ C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTra
 C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Details.cshtml.g.cs
 C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Index.cshtml.g.cs
 C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\Itinerary\Update.cshtml.g.cs
+C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\ForFun\Delete.cshtml.g.cs
+C:\Users\burns\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\Razor\Views\ForFun\Update.cshtml.g.cs

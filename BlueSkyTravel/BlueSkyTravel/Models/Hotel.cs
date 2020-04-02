@@ -22,9 +22,10 @@ namespace BlueSkyTravel.Models
 
         }
 
-        public Hotel(int id, string address, DateTime checkIn, DateTime checkOut, double nightlyRate, int itineraryId)
+        public Hotel(int id, string name,string address, DateTime checkIn, DateTime checkOut, double nightlyRate, int itineraryId)
         {
             Id = id;
+            Name = name;
             Address = address;
             CheckIn = checkIn;
             CheckOut = checkOut;

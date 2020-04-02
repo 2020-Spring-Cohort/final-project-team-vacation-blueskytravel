@@ -40,6 +40,7 @@ namespace BlueSkyTravel
                 new Hotel
                 {
                     Id = 1,
+                    Name = "Holiday Inn",
                     Address = "221B Baker Street",
                     CheckIn = DateTime.Today,
                     CheckOut = DateTime.Today,
