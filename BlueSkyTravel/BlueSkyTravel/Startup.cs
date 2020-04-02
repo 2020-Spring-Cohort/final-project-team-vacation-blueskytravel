@@ -10,6 +10,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
+using Microsoft.EntityFrameworkCore;
+using BlueSkyTravel.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using BlueSkyTravel.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 
 
@@ -28,7 +35,40 @@ namespace BlueSkyTravel
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                                .RequireAuthenticatedUser()
+                                .Build();
+
+            });
+
+            services.AddDbContext<UserDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
+            
+            services.AddTransient<IMailService, SendGridMailService>();
+
+            services.AddRazorPages();
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "470608566033-l6stb5m97m52e2gj4o0lks736adr9t9i.apps.googleusercontent.com";
+                    options.ClientSecret = "zKiwibQf-MSCGbLqWiOtPNKJ";
+                })
+                .AddFacebook(options =>
+                {
+                    options.AppId = "245899396584726";
+                    options.AppSecret = "e1f242444c49e759d19eeaab94dc2e0a";
+                })
+                .AddTwitter(options =>
+                {
+                    options.ConsumerKey = "fMMpNfnH3oDzdXSJ0fq558fow";
+                    options.ConsumerSecret = "cBeCunIByEJzrQuf42jWmDRcYMCoJARUhb4ARRcj6TDmDG2kmI";
+                    options.RetrieveUserDetails = true;
+                });
             services.AddDbContext<BlueSkyContext>();
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
@@ -45,6 +85,7 @@ namespace BlueSkyTravel
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -57,6 +98,7 @@ namespace BlueSkyTravel
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -64,6 +106,7 @@ namespace BlueSkyTravel
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
