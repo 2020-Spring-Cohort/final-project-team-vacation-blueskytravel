@@ -69,7 +69,8 @@ namespace BlueSkyTravel
                     options.ConsumerSecret = "cBeCunIByEJzrQuf42jWmDRcYMCoJARUhb4ARRcj6TDmDG2kmI";
                     options.RetrieveUserDetails = true;
                 });
-            services.AddDbContext<BlueSkyContext>();
+
+
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
