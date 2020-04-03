@@ -12,7 +12,7 @@ namespace BlueSkyTravel.Tests
 
         public VoteModelTests()
         {
-            myVote = new Vote(1, true);
+            myVote = new Vote(1, true, 1);
         }
 
         [Fact]

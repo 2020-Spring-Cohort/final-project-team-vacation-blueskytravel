@@ -12,7 +12,9 @@ namespace BlueSkyTravel.Models
         public DateTime TravelDateFinish { get; set; }
         public string Destination { get; set; }
         public double Budget { get; set; }
-
+        public virtual ICollection<Flight> Flights { get; set; }
+        public virtual ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<ForFun> ForFuns { get; set; }
 
         public Itinerary()
         {
