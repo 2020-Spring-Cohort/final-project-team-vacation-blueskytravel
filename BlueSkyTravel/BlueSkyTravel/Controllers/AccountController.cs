@@ -77,9 +77,10 @@ namespace BlueSkyTravel.Controllers
             return View(model);
         }
 
-        [HttpGet]
+
         public IActionResult Login()
         {
+
             return View();
         }
 

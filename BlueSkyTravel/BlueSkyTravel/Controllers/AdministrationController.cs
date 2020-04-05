@@ -194,9 +194,8 @@ namespace BlueSkyTravel.Controllers
                         return RedirectToAction("EditRole", new { Id = roleId });
                     }
                 }
-
-                return RedirectToAction("EditRole", new { Id = roleId });
             }
+            return RedirectToAction("EditRole", new { Id = roleId });
         }
     }
 }
