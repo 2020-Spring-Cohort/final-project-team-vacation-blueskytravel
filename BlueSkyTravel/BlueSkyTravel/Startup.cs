@@ -37,6 +37,11 @@ namespace BlueSkyTravel
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<UserDbContext>();
 
+            services.AddIdentity<IdentityOptions, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<UserDbContext>();
+
             services.AddMvc(options =>
             {
                 var policy = new AuthorizationPolicyBuilder()
