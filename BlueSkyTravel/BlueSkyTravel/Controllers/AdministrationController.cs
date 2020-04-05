@@ -36,7 +36,7 @@ namespace BlueSkyTravel.Controllers
 
                 if (result.Succeeded)
                 {
-                    RedirectToAction("index", "home");
+                    RedirectToAction("ListRoles", "Administration");
                 }
 
                 foreach (IdentityError error in result.Errors)
