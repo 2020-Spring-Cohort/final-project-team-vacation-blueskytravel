@@ -5,7 +5,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BlueSkyTravel.Areas.IdentityModel;
 using BlueSkyTravel.Models;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -191,7 +190,7 @@ namespace BlueSkyTravel.Controllers
                 return View("Error");
             }
 
-            return View("Login", loginViewModel);
+            //return View("Login", loginViewModel);
         }
         public IActionResult Index()
         {
