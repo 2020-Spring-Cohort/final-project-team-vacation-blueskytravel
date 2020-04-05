@@ -1,5 +1,6 @@
 ﻿using System;
 using BlueSkyTravel.Areas.Identity.Data;
+using BlueSkyTravel.Areas.IdentityModel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -19,7 +20,7 @@ namespace BlueSkyTravel.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("UserDbContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<UserDbContext>();
             });
         }

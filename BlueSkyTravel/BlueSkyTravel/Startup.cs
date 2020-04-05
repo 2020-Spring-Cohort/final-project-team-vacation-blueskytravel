@@ -17,8 +17,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using BlueSkyTravel.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
-
-
+using BlueSkyTravel.Areas.IdentityModel;
 
 namespace BlueSkyTravel
 {
@@ -34,7 +33,7 @@ namespace BlueSkyTravel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<UserDbContext>();
 
             services.AddIdentity<IdentityOptions, IdentityRole>(options =>
