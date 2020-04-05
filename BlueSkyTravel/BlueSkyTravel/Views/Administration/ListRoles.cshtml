@@ -1,0 +1,29 @@
+﻿@model Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole
+
+@{ 
+    ViewBag.Title = "All Roles";
+}
+
+<h1> All Roles </h1>
+
+if (Model.Any())
+{
+
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No Roles Created Yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the Button Below to Create a Role
+            </h5>
+            <a class="btn btn-primary" style="width:auto">
+                Create Role
+            </a>
+        </div>
+    </div>
+
+}

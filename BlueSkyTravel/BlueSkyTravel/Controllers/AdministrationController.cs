@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BlueSkyTravel.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,13 @@ namespace BlueSkyTravel.Controllers
                 }
             }
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult ListRoles()
+        {
+            var roles = roleManager.Roles;
+            return View(roles);
         }
     }
 }

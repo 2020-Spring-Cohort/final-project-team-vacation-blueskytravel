@@ -44,23 +44,27 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.2.0, )"
+              "version": "[16.5.0, )"
             },
             "NSubstitute": {
               "target": "Package",
               "version": "[4.2.1, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[1.2.1, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.0, )"
+              "version": "[2.4.1, )"
             },
             "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.0, )"
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -171,7 +175,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "SendGrid": {
               "target": "Package",
