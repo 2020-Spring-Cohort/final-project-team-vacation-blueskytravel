@@ -96,7 +96,7 @@ namespace BlueSkyTravel.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult ExternalLogin(string provider, string ReturnUrl)
+        public IActionResult ExternalLogin(string provider, string returnUrl)
         {
             var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
                                       new { ReturnUrl = returnUrl });
@@ -122,7 +122,7 @@ namespace BlueSkyTravel.Controllers
                 return View("Login", loginViewModel);
             }
 
-            var info == await signInManager.GetExternalLoginInfoAsync();
+            var info = await signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
                 ModelState.AddModelError(string.Empty, "Error loading external Login information");
@@ -130,7 +130,7 @@ namespace BlueSkyTravel.Controllers
             }
 
             var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
-                                                                            info.Providerkey, isPersistent: false, bypassTwoFactor: true);
+                                                                            info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (signInResult.Succeeded)
             {
                 return LocalRedirect(returnUrl);
@@ -154,7 +154,7 @@ namespace BlueSkyTravel.Controllers
                     }
 
                     await userManager.AddLoginAsync(user, info);
-                    await signInManager.SigninAsync(user, isPersistent: false);
+                    await signInManager.SignInAsync(user, isPersistent: false);
 
                     return LocalRedirect(returnUrl);
                 }
