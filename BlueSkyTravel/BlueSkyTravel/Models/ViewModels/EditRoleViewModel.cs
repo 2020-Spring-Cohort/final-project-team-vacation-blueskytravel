@@ -8,6 +8,10 @@ namespace BlueSkyTravel.Models
 {
     public class EditRoleViewModel
     {
+        public EditRoleViewModel()
+        {
+            Users = new List<string>();
+        }
         public string Id { get; set; }
         
         [Required]
