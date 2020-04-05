@@ -37,6 +37,30 @@ namespace BlueSkyTravel.Controllers
         [AllowAnonymous]
         public async Task<IActionResult>
             ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
+
+            LoginViewModel loginViewModel = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return View("Login", loginViewModel);
+            }
+
+            var info == await signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading external Login information");
+                return View("Login", loginViewModel);
+            }
+
+            return View("Login", loginViewModel);
+        }
         public IActionResult Index()
         {
             return View();
