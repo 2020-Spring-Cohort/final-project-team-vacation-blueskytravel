@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BlueSkyTravel.Models;
 using Microsoft.AspNet.Identity.Owin;
@@ -30,7 +31,7 @@ namespace BlueSkyTravel.Controllers
         {
             var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
                                       new { ReturnUrl = returnUrl });
-            var properties = SignInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
             return new ChallengeResult(provider, properties);
         }
 
@@ -57,6 +58,24 @@ namespace BlueSkyTravel.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Error loading external Login information");
                 return View("Login", loginViewModel);
+            }
+
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
+                                                                            info.Providerkey, isPersistent: false, bypassTwoFactor: true);
+            if (signInResult.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                if (email != null)
+                {
+                    var user = await userManager.FindByEmailAsync(email);
+
+                    await userManager.AddLoginAsync(user, info);
+                    await signInManager.SigninAsync(user, isPersistent: false);
+                }
             }
 
             return View("Login", loginViewModel);
