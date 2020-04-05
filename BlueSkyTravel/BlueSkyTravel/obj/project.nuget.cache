@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gl6J86b4WU88nLcI/xsbnCrakIEqgUSWjP6EmseVdYUgwlpWIhuEmwDhPTeK6wZ5DpEIYwVE71yCTo8AiwuO8Q==",
+  "dgSpecHash": "P10WRLFrJD4f9GP3/QdTPQTeiaBqPKnd3wTL/nFZBVvRTsmA7ATgdtW3n3yo1vUTKlwCJoOwNm9spJ4WP3UAyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tom\\source\\repos\\oauthfinal\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
+  "projectFilePath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tom\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Tom\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\3.1.3\\microsoft.aspnetcore.authentication.facebook.3.1.3.nupkg.sha512",
