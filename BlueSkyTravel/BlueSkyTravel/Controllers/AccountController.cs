@@ -73,9 +73,26 @@ namespace BlueSkyTravel.Controllers
                 {
                     var user = await userManager.FindByEmailAsync(email);
 
+                    if (user == null)
+                    { 
+                        user = new ApplicationUser
+                        { 
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email) 
+                        };
+
+                        await userManager.CreateAsync(user);
+                    }
+
                     await userManager.AddLoginAsync(user, info);
                     await signInManager.SigninAsync(user, isPersistent: false);
+
+                    return LocalRedirect(returnUrl);
                 }
+                ViewBag.ErorTitle = $"Email claim not received from: {info.LoginProvider}";
+                ViewBag.ErrorMessage = "Please contact support at TShaw516@gmail.com";
+
+                return View("Error");
             }
 
             return View("Login", loginViewModel);
