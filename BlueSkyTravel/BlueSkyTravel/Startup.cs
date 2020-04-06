@@ -77,10 +77,6 @@ namespace BlueSkyTravel
                     options.RetrieveUserDetails = true;
                 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/dev
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
