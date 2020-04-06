@@ -7,6 +7,7 @@ namespace BlueSkyTravel.Models
 {
     public class Itinerary
     {
+        public string TripName { get; set; }
         public int Id { get; set; }
         public DateTime TravelDateStart { get; set; }
         public DateTime TravelDateFinish { get; set; }
@@ -21,8 +22,9 @@ namespace BlueSkyTravel.Models
                 
         }
 
-        public Itinerary(int id, DateTime travelDateStart, DateTime travelDateFinish, string destination, double budget)
+        public Itinerary(string tripName, int id, DateTime travelDateStart, DateTime travelDateFinish, string destination, double budget)
         {
+            TripName = tripName;
             Id = id;
             TravelDateStart = travelDateStart;
             TravelDateFinish = travelDateFinish;

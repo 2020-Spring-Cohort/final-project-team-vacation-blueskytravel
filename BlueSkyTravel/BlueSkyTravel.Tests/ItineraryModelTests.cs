@@ -11,7 +11,7 @@ namespace BlueSkyTravel.Tests
 
         public ItineraryModelTests()
         {
-            myItin = new Itinerary(1, DateTime.Today, DateTime.Today, "Hawaii", 1000.00);
+            myItin = new Itinerary("Pacific Trip", 1, DateTime.Today, DateTime.Today, "Hawaii", 1000.00);
         }
 
         [Fact]

@@ -4,14 +4,16 @@ using BlueSkyTravel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlueSkyTravel.Migrations
 {
     [DbContext(typeof(BlueSkyContext))]
-    partial class BlueSkyContextModelSnapshot : ModelSnapshot
+    [Migration("20200406084042_updated itin model")]
+    partial class updateditinmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,16 +100,16 @@ namespace BlueSkyTravel.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ec17b84b-2e3b-4be5-bd49-6e9e42438c62",
+                            Id = "0c85d72f-0052-49ae-8eb8-1b45d2efad86",
                             AccessFailedCount = 0,
                             City = "Akron",
-                            ConcurrencyStamp = "3a8441f3-ffbd-4758-81a4-8fe12ae2b97b",
+                            ConcurrencyStamp = "fd6946d9-611d-4ce0-8428-b2b6cd359294",
                             EmailConfirmed = false,
                             FirstName = "Tom",
                             LastName = "Shaw",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6927033e-d880-473e-9012-dd8090d40883",
+                            SecurityStamp = "26f2471d-f287-4d7c-98f8-c541fc291e87",
                             State = "Ohio",
                             TwoFactorEnabled = false
                         });

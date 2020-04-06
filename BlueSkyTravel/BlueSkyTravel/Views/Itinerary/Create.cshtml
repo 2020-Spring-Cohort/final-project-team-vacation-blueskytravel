@@ -15,6 +15,11 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="TripName" class="control-label"></label>
+                <input asp-for="TripName" class="form-control" />
+                <span asp-validation-for="TripName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="TravelDateStart" class="control-label"></label>
                 <input asp-for="TravelDateStart" class="form-control" />
                 <span asp-validation-for="TravelDateStart" class="text-danger"></span>
