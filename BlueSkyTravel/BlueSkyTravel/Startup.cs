@@ -23,6 +23,9 @@ namespace BlueSkyTravel
 {
     public class Startup
     {
+        private string googleClientId = null;
+        private string googleClientSecret = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -30,7 +33,6 @@ namespace BlueSkyTravel
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -49,18 +51,19 @@ namespace BlueSkyTravel
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<BlueSkyContext>()
             .AddDefaultTokenProviders();
-
-            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            //.AddEntityFrameworkStores<BlueSkyContext>();
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<BlueSkyContext>();
 
+            googleClientId = Configuration["Authentication:Google:ClientId"];
+            googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
+
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
-                    options.ClientId = "470608566033-l6stb5m97m52e2gj4o0lks736adr9t9i.apps.googleusercontent.com";
-                    options.ClientSecret = "zKiwibQf-MSCGbLqWiOtPNKJ";
+                    options.ClientId = googleClientId;
+                    options.ClientSecret = googleClientSecret;
                 })
                 .AddFacebook(options =>
                 {
@@ -79,31 +82,12 @@ namespace BlueSkyTravel
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
             services.AddScoped<IRepository<Flight>, FlightRepository>();
             services.AddScoped<IRepository<Vote>, VoteRepository>();
-
-            //services.AddIdentity<ApplicationUser, IdentityRole>()
-            //.AddEntityFrameworkStores<BlueSkyContext>();
-
-            //    services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-            //    {
-            //        options.Password.RequireNonAlphanumeric = false;
-            //    }).AddEntityFrameworkStores<BlueSkyContext>()
-            //    .AddDefaultTokenProviders();
-            //    services.AddScoped<RoleManager<ApplicationRole>>();
-
-
-            //}
         }
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             {
-                //services.AddDbContext<BlueSkyContext>(options =>
-                //    options.UseSqlServer(
-                //        context.Configuration.GetConnectionString("BlueSkyDbConnection")));
-
-                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                //.AddEntityFrameworkStores<BlueSkyContext>();
-
                 if (env.IsDevelopment())
                 {
                     app.UseDeveloperExceptionPage();
@@ -112,7 +96,6 @@ namespace BlueSkyTravel
                 else
                 {
                     app.UseExceptionHandler("/Home/Error");
-                    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                     app.UseHsts();
                 }
                 app.UseHttpsRedirection();
