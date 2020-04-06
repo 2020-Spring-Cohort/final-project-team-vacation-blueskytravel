@@ -78,7 +78,7 @@ namespace BlueSkyTravel.Controllers
                 }
             }
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
