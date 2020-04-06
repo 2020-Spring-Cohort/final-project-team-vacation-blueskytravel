@@ -15,6 +15,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TripName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TravelDateStart)
             </th>
             <th>
@@ -32,6 +35,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TripName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TravelDateStart)
             </td>

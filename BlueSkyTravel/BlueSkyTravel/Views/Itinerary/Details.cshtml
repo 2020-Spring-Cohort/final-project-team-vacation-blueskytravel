@@ -42,3 +42,93 @@
     <a asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+<div id="flights">
+    @foreach (var item in Model.Flights)
+    {
+        <div>
+            <p>
+                @Html.DisplayFor(modelItem => item.AirlineName)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.FlightNumber)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.ArrivalDate)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Fare)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>
+            <div>
+                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+<div id="hotels">
+    @foreach (var item in Model.Hotels)
+    {
+        <div>
+            <p>
+                @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Address)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.CheckOut)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.NightlyRate)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>
+            <div>
+                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+<div id="activities">
+    @foreach (var item in Model.ForFuns)
+    {
+        <div>
+            <p>
+                @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.EventTime)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Fare)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.IsApproved)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Location)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>
+            <div>
+                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>

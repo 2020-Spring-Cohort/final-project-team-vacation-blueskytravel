@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
+        "projectName": "BlueSkyTravel.Tests",
+        "projectPath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\obj\\",
+=======
     "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\BlueSkyTravel.Tests.csproj",
         "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel.Tests\\obj\\",
+>>>>>>> origin/dev
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +41,13 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+<<<<<<< HEAD
+              "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
+                "projectPath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj"
+=======
               "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
                 "projectPath": "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj"
+>>>>>>> origin/dev
               }
             }
           }
@@ -44,23 +63,27 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[16.2.0, )"
+              "version": "[16.5.0, )"
             },
             "NSubstitute": {
               "target": "Package",
               "version": "[4.2.1, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[1.2.1, )"
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.0, )"
+              "version": "[2.4.1, )"
             },
             "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.0, )"
+              "version": "[2.4.1, )"
             }
           },
           "imports": [
@@ -85,6 +108,16 @@
         }
       }
     },
+<<<<<<< HEAD
+    "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
+        "projectName": "BlueSkyTravel",
+        "projectPath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\obj\\",
+=======
     "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -93,6 +126,7 @@
         "projectPath": "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\BlueSkyTravel.csproj",
         "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\joshu\\source\\repos\\final-project-team-vacation-blueskytravel\\BlueSkyTravel\\BlueSkyTravel\\obj\\",
+>>>>>>> origin/dev
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -131,9 +165,17 @@
               "target": "Package",
               "version": "[3.1.3, )"
             },
+            "Microsoft.AspNetCore.AzureKeyVault.HostingStartup": {
+              "target": "Package",
+              "version": "[2.0.4, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -163,7 +205,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "SendGrid": {
               "target": "Package",

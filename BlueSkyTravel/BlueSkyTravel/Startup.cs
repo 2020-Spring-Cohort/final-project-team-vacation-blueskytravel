@@ -11,19 +11,21 @@ using Microsoft.Extensions.Hosting;
 using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
 using Microsoft.EntityFrameworkCore;
-using BlueSkyTravel.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using BlueSkyTravel.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
-
-
+using BlueSkyTravel.Areas.IdentityModel;
+using BlueSkyTravel.Models.IdentityModel;
 
 namespace BlueSkyTravel
 {
     public class Startup
     {
+        private string googleClientId = null;
+        private string googleClientSecret = null;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,7 +33,6 @@ namespace BlueSkyTravel
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -43,20 +44,26 @@ namespace BlueSkyTravel
 
             });
 
-            services.AddDbContext<UserDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllersWithViews();
-            
-            services.AddTransient<IMailService, SendGridMailService>();
+            services.AddDbContext<BlueSkyContext>(options =>
+            options.UseSqlServer(
+            Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<BlueSkyContext>()
+            .AddDefaultTokenProviders();
+            
+            services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddDbContext<BlueSkyContext>();
+
+            googleClientId = Configuration["Authentication:Google:ClientId"];
+            googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
 
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
-                    options.ClientId = "470608566033-l6stb5m97m52e2gj4o0lks736adr9t9i.apps.googleusercontent.com";
-                    options.ClientSecret = "zKiwibQf-MSCGbLqWiOtPNKJ";
+                    options.ClientId = googleClientId;
+                    options.ClientSecret = googleClientSecret;
                 })
                 .AddFacebook(options =>
                 {
@@ -70,45 +77,47 @@ namespace BlueSkyTravel
                     options.RetrieveUserDetails = true;
                 });
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/dev
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
             services.AddScoped<IRepository<Flight>, FlightRepository>();
             services.AddScoped<IRepository<Vote>, VoteRepository>();
-
-
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                    app.UseDatabaseErrorPage();
+                }
+                else
+                {
+                    app.UseExceptionHandler("/Home/Error");
+                    app.UseHsts();
+                }
+                app.UseHttpsRedirection();
+                app.UseStaticFiles();
+
+                app.UseRouting();
+
+                app.UseAuthentication();
+                app.UseAuthorization();
+
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                    endpoints.MapRazorPages();
+                });
             }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });
         }
     }
 }
