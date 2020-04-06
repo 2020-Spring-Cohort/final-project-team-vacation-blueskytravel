@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlueSkyTravel.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using BlueSkyTravel.Areas.IdentityModel;
 
 namespace BlueSkyTravel
 {
-    public class BlueSkyContext : DbContext
+    public class BlueSkyContext : IdentityDbContext
     {
         public DbSet<Itinerary> Itinerary { get; set; }
         public DbSet<Flight> Flights { get; set; }
@@ -15,11 +17,14 @@ namespace BlueSkyTravel
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Vote> Votes { get; set; }
 
+        public BlueSkyContext(DbContextOptions<BlueSkyContext> options)
+        : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=BlueSkyTravel;Trusted_Connection=True;";
-
-            optionsBuilder.UseSqlServer(connectionString)
+          optionsBuilder.UseSqlServer("BlueSkyDbConnection")
                           .UseLazyLoadingProxies();
 
             base.OnConfiguring(optionsBuilder);
@@ -79,6 +84,17 @@ namespace BlueSkyTravel
                   VoteChoice = true,
                   ForFunId = 1
               });
+
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    FirstName = "Tom",
+                    LastName = "Shaw",
+                    City = "Akron",
+                    State = "Ohio"
+                });
+                
+                
 
             base.OnModelCreating(modelBuilder);
         }

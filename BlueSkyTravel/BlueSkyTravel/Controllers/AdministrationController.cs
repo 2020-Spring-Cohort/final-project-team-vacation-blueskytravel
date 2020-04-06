@@ -134,7 +134,7 @@ namespace BlueSkyTravel.Controllers
             {
                 var userRoleViewModel = new UserRoleViewModel
                 {
-                    UserId = user.Id,
+                    UserId = "user.Id",
                     UserName = user.UserName
                 };
 
