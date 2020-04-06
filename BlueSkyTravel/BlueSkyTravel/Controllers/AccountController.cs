@@ -112,91 +112,93 @@ namespace BlueSkyTravel.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public /*async Task<I*/ActionResult/*>*/ Login(string returnUrl)
+        public async Task<IActionResult> Login(string returnUrl)
         {
             LoginViewModel model = new LoginViewModel
             {
                 ReturnUrl = returnUrl,
-                //ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+                ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(model);
         }
 
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public IActionResult ExternalLogin(string provider, string returnUrl)
-        //{
-        //    var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
-        //                              new { ReturnUrl = returnUrl });
-        //    var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
-        //    return new ChallengeResult(provider, properties);
-        //}
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult ExternalLogin(string provider, string returnUrl)
+        {
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
+                                      new { ReturnUrl = returnUrl });
 
-        //[AllowAnonymous]
-        //public async Task<IActionResult>
-        //    ExternalLoginCallback(string returnUrl = null, string remoteError = null)
-        //{
-        //    returnUrl = returnUrl ?? Url.Content("~/");
+            var properties = signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 
-        //    LoginViewModel loginViewModel = new LoginViewModel
-        //    {
-        //        ReturnUrl = returnUrl,
-        //        ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
-        //    };
+            return new ChallengeResult(provider, properties);
+        }
 
-        //    if (remoteError != null)
-        //    {
-        //        ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
-        //        return View("Login", loginViewModel);
-        //    }
+        [AllowAnonymous]
+        public async Task<IActionResult>
+            ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
 
-        //    var info = await signInManager.GetExternalLoginInfoAsync();
-        //    if (info == null)
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Error loading external Login information");
-        //        return View("Login", loginViewModel);
-        //    }
+            LoginViewModel loginViewModel = new LoginViewModel
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
 
-        //    var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
-        //                                                                    info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
-        //    if (signInResult.Succeeded)
-        //    {
-        //        return LocalRedirect(returnUrl);
-        //    }
-        //    else
-        //    {
-        //        var email = info.Principal.FindFirstValue(ClaimTypes.Email);
-        //        if (email != null)
-        //        {
-        //            var user = await userManager.FindByEmailAsync(email);
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return View("Login", loginViewModel);
+            }
 
-        //            if (user == null)
-        //            { 
-        //                user = new ApplicationUser
-        //                { 
-        //                    UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
-        //                    Email = info.Principal.FindFirstValue(ClaimTypes.Email) 
-        //                };
+            var info = await signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading external Login information");
+                return View("Login", loginViewModel);
+            }
 
-        //                await userManager.CreateAsync(user);
-        //            }
+            var signInResult = await signInManager.ExternalLoginSignInAsync(info.LoginProvider,
+                                                                            info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (signInResult.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                if (email != null)
+                {
+                    var user = await userManager.FindByEmailAsync(email);
 
-        //            await userManager.AddLoginAsync(user, info);
-        //            await signInManager.SignInAsync(user, isPersistent: false);
+                    if (user == null)
+                    {
+                        user = new ApplicationUser
+                        {
+                            UserName = info.Principal.FindFirstValue(ClaimTypes.Email),
+                            Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        };
 
-        //            return LocalRedirect(returnUrl);
-        //        }
-        //        ViewBag.ErorTitle = $"Email claim not received from: {info.LoginProvider}";
-        //        ViewBag.ErrorMessage = "Please contact support at TShaw516@gmail.com";
+                        await userManager.CreateAsync(user);
+                    }
 
-        //        return View("Error");
-        //    }
+                    await userManager.AddLoginAsync(user, info);
+                    await signInManager.SignInAsync(user, isPersistent: false);
 
-        //    //return View("Login", loginViewModel);
-        //}
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+                    return LocalRedirect(returnUrl);
+                }
+                ViewBag.ErorTitle = $"Email claim not received from: {info.LoginProvider}";
+                ViewBag.ErrorMessage = "Please contact support at TShaw516@gmail.com";
+
+                return View("Error");
+            }
+
+            //return View("Login", loginViewModel);
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
     }
 }

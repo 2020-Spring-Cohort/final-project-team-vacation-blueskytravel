@@ -5,7 +5,7 @@
     ViewBag.Title = "User Login";
 }
 
-<h1>User Login</h1>
+<h1>Local Login</h1>
 
 <div class="row">
     <div class="col-md-6">
@@ -42,9 +42,9 @@
                 </div>
             </form>
     </div>
-    @*<div class="col-md-6 col-md-offset-2">
+    <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>External Logins</h4>
+            <h4>External Login</h4>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -57,7 +57,7 @@
                 }
                 else
                 {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                    <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
                         <div>
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
@@ -70,7 +70,7 @@
                 }
             }
         </section>
-    </div>*@
+    </div>
 </div>
 
 @section Scripts {
