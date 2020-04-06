@@ -42,11 +42,19 @@ namespace BlueSkyTravel
 
             });
 
+            services.AddDbContext<BlueSkyContext>(options =>
+            options.UseSqlServer(
+            Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<BlueSkyContext>()
+            .AddDefaultTokenProviders();
+
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //.AddEntityFrameworkStores<BlueSkyContext>();
             services.AddControllersWithViews();
-
-            services.AddTransient<IMailService, SendGridMailService>();
-
             services.AddRazorPages();
+            services.AddDbContext<BlueSkyContext>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>
@@ -66,40 +74,35 @@ namespace BlueSkyTravel
                     options.RetrieveUserDetails = true;
                 });
 
-            services.AddDbContext<BlueSkyContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("BlueSkyDbConnection")));
-
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
             services.AddScoped<IRepository<Flight>, FlightRepository>();
             services.AddScoped<IRepository<Vote>, VoteRepository>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<BlueSkyContext>();
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //.AddEntityFrameworkStores<BlueSkyContext>();
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-            {
-                options.Password.RequireNonAlphanumeric = false;
-            }).AddEntityFrameworkStores<BlueSkyContext>()
-            .AddDefaultTokenProviders();
-            services.AddScoped<RoleManager<ApplicationRole>>();
+            //    services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            //    {
+            //        options.Password.RequireNonAlphanumeric = false;
+            //    }).AddEntityFrameworkStores<BlueSkyContext>()
+            //    .AddDefaultTokenProviders();
+            //    services.AddScoped<RoleManager<ApplicationRole>>();
 
 
+            //}
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IWebHostBuilder builder)
+            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            builder.ConfigureServices((context, services) =>
             {
-                services.AddDbContext<BlueSkyContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("BlueSkyDbConnection")));
+                //services.AddDbContext<BlueSkyContext>(options =>
+                //    options.UseSqlServer(
+                //        context.Configuration.GetConnectionString("BlueSkyDbConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<BlueSkyContext>();
+                //services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //.AddEntityFrameworkStores<BlueSkyContext>();
 
                 if (env.IsDevelopment())
                 {
@@ -128,8 +131,6 @@ namespace BlueSkyTravel
                     endpoints.MapRazorPages();
                 });
             }
-    );
         }
-
     }
 }

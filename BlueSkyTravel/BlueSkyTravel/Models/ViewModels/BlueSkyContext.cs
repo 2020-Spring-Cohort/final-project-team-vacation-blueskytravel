@@ -9,7 +9,7 @@ using BlueSkyTravel.Areas.IdentityModel;
 
 namespace BlueSkyTravel
 {
-    public class BlueSkyContext : IdentityDbContext
+    public class BlueSkyContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Itinerary> Itinerary { get; set; }
         public DbSet<Flight> Flights { get; set; }
@@ -18,17 +18,20 @@ namespace BlueSkyTravel
         public DbSet<Vote> Votes { get; set; }
 
         public BlueSkyContext(DbContextOptions<BlueSkyContext> options)
-        : base(options)
+            : base(options)
         {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          optionsBuilder.UseSqlServer("BlueSkyDbConnection")
-                          .UseLazyLoadingProxies();
+            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=BlueSkyTravel;Trusted_Connection=True;";
+
+            optionsBuilder.UseSqlServer(connectionString)
+                .UseLazyLoadingProxies();
 
             base.OnConfiguring(optionsBuilder);
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Itinerary>().HasData(

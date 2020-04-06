@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueSkyTravel.Models.IdentityModel
 {
-    public class ApplicationRole : IdentityRole<int>
+    public class ApplicationRole : IdentityRole
     {
     }
 }

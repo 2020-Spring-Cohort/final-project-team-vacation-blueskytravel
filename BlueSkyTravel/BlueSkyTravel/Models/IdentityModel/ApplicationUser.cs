@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueSkyTravel.Areas.IdentityModel
 {
-    public class ApplicationUser : IdentityUser<int>
+    public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

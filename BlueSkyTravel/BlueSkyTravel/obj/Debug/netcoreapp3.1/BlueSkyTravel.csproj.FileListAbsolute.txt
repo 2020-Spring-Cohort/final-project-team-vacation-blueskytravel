@@ -904,4 +904,3 @@ C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTrave
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\staticwebassets\BlueSkyTravel.StaticWebAssets.Manifest.cache
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\staticwebassets\BlueSkyTravel.StaticWebAssets.xml
 C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.genruntimeconfig.cache
-C:\Users\Tom\source\repos\final-project-team-vacation-blueskytravel\BlueSkyTravel\BlueSkyTravel\obj\Debug\netcoreapp3.1\BlueSkyTravel.csprojAssemblyReference.cache
