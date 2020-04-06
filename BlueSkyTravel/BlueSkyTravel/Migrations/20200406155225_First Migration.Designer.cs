@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlueSkyTravel.Migrations
 {
     [DbContext(typeof(BlueSkyContext))]
-    [Migration("20200406034000_updatedmodels")]
-    partial class updatedmodels
+    [Migration("20200406155225_First Migration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,16 +100,16 @@ namespace BlueSkyTravel.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2f643e0b-9242-448e-b7e5-0356be37a679",
+                            Id = "14f7f6c9-d19e-41ae-9d30-df931d60e9a3",
                             AccessFailedCount = 0,
                             City = "Akron",
-                            ConcurrencyStamp = "4b8b92a4-c688-4834-a25e-c8a8b1a77b97",
+                            ConcurrencyStamp = "87460bb9-2c48-431c-b873-3e338d5a4aab",
                             EmailConfirmed = false,
                             FirstName = "Tom",
                             LastName = "Shaw",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9683808-b93c-454f-bf9f-3feececd5736",
+                            SecurityStamp = "8406828e-ec5f-4cce-bee3-429632b82a70",
                             State = "Ohio",
                             TwoFactorEnabled = false
                         });
@@ -151,8 +151,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             AirlineName = "WCCI AIR",
-                            ArrivalDate = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            DepartureDate = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            ArrivalDate = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            DepartureDate = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 426.0,
                             FlightNumber = "WCCI-2020",
                             ItineraryId = 1
@@ -194,7 +194,7 @@ namespace BlueSkyTravel.Migrations
                         new
                         {
                             Id = 1,
-                            EventTime = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            EventTime = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 100.0,
                             IsApproved = false,
                             ItineraryId = 1,
@@ -239,8 +239,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             Address = "221B Baker Street",
-                            CheckIn = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            CheckOut = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckIn = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckOut = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             ItineraryId = 1,
                             Name = "Holiday Inn",
                             NightlyRate = 150.0
@@ -266,6 +266,9 @@ namespace BlueSkyTravel.Migrations
                     b.Property<DateTime>("TravelDateStart")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("TripName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Itinerary");
@@ -276,8 +279,8 @@ namespace BlueSkyTravel.Migrations
                             Id = 1,
                             Budget = 1500.0,
                             Destination = "London, UK",
-                            TravelDateFinish = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local),
-                            TravelDateStart = new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local)
+                            TravelDateFinish = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            TravelDateStart = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 

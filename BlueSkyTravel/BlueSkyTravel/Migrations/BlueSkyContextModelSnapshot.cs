@@ -98,16 +98,16 @@ namespace BlueSkyTravel.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ec17b84b-2e3b-4be5-bd49-6e9e42438c62",
+                            Id = "14f7f6c9-d19e-41ae-9d30-df931d60e9a3",
                             AccessFailedCount = 0,
                             City = "Akron",
-                            ConcurrencyStamp = "3a8441f3-ffbd-4758-81a4-8fe12ae2b97b",
+                            ConcurrencyStamp = "87460bb9-2c48-431c-b873-3e338d5a4aab",
                             EmailConfirmed = false,
                             FirstName = "Tom",
                             LastName = "Shaw",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6927033e-d880-473e-9012-dd8090d40883",
+                            SecurityStamp = "8406828e-ec5f-4cce-bee3-429632b82a70",
                             State = "Ohio",
                             TwoFactorEnabled = false
                         });

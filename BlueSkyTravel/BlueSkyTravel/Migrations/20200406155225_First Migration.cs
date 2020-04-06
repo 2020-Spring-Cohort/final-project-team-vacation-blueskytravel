@@ -40,7 +40,6 @@ namespace BlueSkyTravel.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
@@ -57,6 +56,7 @@ namespace BlueSkyTravel.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    TripName = table.Column<string>(nullable: true),
                     TravelDateStart = table.Column<DateTime>(nullable: false),
                     TravelDateFinish = table.Column<DateTime>(nullable: false),
                     Destination = table.Column<string>(nullable: true),
@@ -113,8 +113,8 @@ namespace BlueSkyTravel.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -158,8 +158,8 @@ namespace BlueSkyTravel.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -267,28 +267,28 @@ namespace BlueSkyTravel.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "City", "FirstName", "LastName", "State" },
-                values: new object[] { "6fb6be56-d2f8-4e96-b1c8-bbacad0ede53", 0, "4a8c8777-4f09-45c7-b5b4-adbc0df0eda8", "ApplicationUser", null, false, false, null, null, null, null, null, false, "922c7935-fcb8-4174-b3b1-c8fa84a03396", false, null, "Akron", "Tom", "Shaw", "Ohio" });
+                columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "14f7f6c9-d19e-41ae-9d30-df931d60e9a3", 0, "Akron", "87460bb9-2c48-431c-b873-3e338d5a4aab", null, false, "Tom", "Shaw", false, null, null, null, null, null, false, "8406828e-ec5f-4cce-bee3-429632b82a70", "Ohio", false, null });
 
             migrationBuilder.InsertData(
                 table: "Itinerary",
-                columns: new[] { "Id", "Budget", "Destination", "TravelDateFinish", "TravelDateStart" },
-                values: new object[] { 1, 1500.0, "London, UK", new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local) });
+                columns: new[] { "Id", "Budget", "Destination", "TravelDateFinish", "TravelDateStart", "TripName" },
+                values: new object[] { 1, 1500.0, "London, UK", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), null });
 
             migrationBuilder.InsertData(
                 table: "Flights",
                 columns: new[] { "Id", "AirlineName", "ArrivalDate", "DepartureDate", "Fare", "FlightNumber", "ItineraryId" },
-                values: new object[] { 1, "WCCI AIR", new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), 426.0, "WCCI-2020", 1 });
+                values: new object[] { 1, "WCCI AIR", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 426.0, "WCCI-2020", 1 });
 
             migrationBuilder.InsertData(
                 table: "ForFuns",
                 columns: new[] { "Id", "EventTime", "Fare", "IsApproved", "ItineraryId", "Location", "Name" },
-                values: new object[] { 1, new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), 100.0, false, 1, "Paris, France", "Disneyland" });
+                values: new object[] { 1, new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 100.0, false, 1, "Paris, France", "Disneyland" });
 
             migrationBuilder.InsertData(
                 table: "Hotels",
                 columns: new[] { "Id", "Address", "CheckIn", "CheckOut", "ItineraryId", "Name", "NightlyRate" },
-                values: new object[] { 1, "221B Baker Street", new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 5, 0, 0, 0, 0, DateTimeKind.Local), 1, "Holiday Inn", 150.0 });
+                values: new object[] { 1, "221B Baker Street", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 1, "Holiday Inn", 150.0 });
 
             migrationBuilder.InsertData(
                 table: "Votes",
