@@ -1,5 +1,6 @@
 ﻿using BlueSkyTravel.Areas.IdentityModel;
 using BlueSkyTravel.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace BlueSkyTravel.Controllers
 {
+    //[Authorize(Roles = "Administrator")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

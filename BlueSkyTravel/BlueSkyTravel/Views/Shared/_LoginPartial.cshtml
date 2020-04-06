@@ -4,25 +4,31 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
-    {
-        <li class="nav-item">
-            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-        </li>
-        <li class="nav-item">
-            <form method="post" asp-action="logout" asp-controller="account" class="form-inline">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-            </form>
-        </li>
-    }
-    else
-    {
-        <li class="nav-item">
-            <a asp-action="Register" asp-controller="Account" class="nav-link text-dark" id="register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a asp-action="Login" asp-controller="Account" class="nav-link text-dark" id="login">Login</a>
-        </li>
-    }
-</ul>
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            </li>
+            <li class="nav-item">
+                <form method="post" asp-action="logout" asp-controller="account" class="form-inline">
+                    <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a asp-action="Register" asp-controller="Account" class="nav-link text-dark" id="register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a asp-action="Login" asp-controller="Account" class="nav-link text-dark" id="login">Login</a>
+            </li>
+        }
+        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a asp-action="ListRoles" asp-controller="Administration" class="nav-link text-dark">Manage Roles</a>
+            </li>
+        }
+    </ul>

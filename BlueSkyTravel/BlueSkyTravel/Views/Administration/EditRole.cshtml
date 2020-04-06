@@ -9,7 +9,6 @@
 <form method="post" class="mt-3">
     <div class="form-group row">
         <label-asp-for ="Id" class="col-sm-2 col-form-label">
-            </label>
             <div class="col-sm-10">
                 <input asp-for="Id" disabled class="form-control">
             </div>
@@ -53,4 +52,5 @@
                 <a asp-action="EditUsersInRole" asp-controller="Administration" asp-route-roleId="@Model.Id" class="btn btn-primary" style="width:auto">Add or Remove Users</a>
             </div>
         </div>
+    </div>
 </form>
