@@ -44,17 +44,13 @@ namespace BlueSkyTravel
 
             });
 
-            services.AddDbContext<BlueSkyContext>(options =>
-            options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddDbContext<BlueSkyContext>();
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<BlueSkyContext>()
             .AddDefaultTokenProviders();
             
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<BlueSkyContext>();
 
             googleClientId = Configuration["Authentication:Google:ClientId"];
             googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
