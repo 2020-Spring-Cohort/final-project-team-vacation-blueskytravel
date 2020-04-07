@@ -46,6 +46,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Update" asp-route-id="@Model.Id">Update</a> |
+    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@Model.ItineraryId">Back to List</a>
 </div>

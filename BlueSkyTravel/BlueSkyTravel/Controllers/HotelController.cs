@@ -6,6 +6,7 @@ using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlueSkyTravel.Controllers
 {
@@ -18,6 +19,7 @@ namespace BlueSkyTravel.Controllers
             this.hotelRepo = hotelRepo;
         }
         // GET: Hotel
+        [Authorize]
         public ViewResult Index()
         {
             var model = hotelRepo.GetAll();
@@ -25,6 +27,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Hotel/Details/5
+        [Authorize]
         public ViewResult Details(int id)
         {
             var model = hotelRepo.GetById(id);
@@ -33,6 +36,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Hotel/Create
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -40,6 +44,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Hotel/Create
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Hotel hotel)
         {
             hotelRepo.Create(hotel);
@@ -48,6 +53,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Hotel/Edit/5
         [HttpGet]
+        [Authorize]
         public ViewResult Update(int id)
         {
             Hotel model = hotelRepo.GetById(id);
@@ -56,7 +62,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Hotel/Edit/5
         [HttpPost]
-       
+        [Authorize]
         public IActionResult Update(Hotel hotel)
         {
             hotelRepo.Update(hotel);
@@ -65,6 +71,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Hotel/Delete/5
         [HttpGet]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             Hotel model = hotelRepo.GetById(id);
@@ -73,6 +80,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Hotel/Delete/5
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(Hotel hotel)
         {
             hotelRepo.Delete(hotel);
