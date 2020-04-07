@@ -4,23 +4,27 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
+@if (!SignInManager.IsSignedIn(User))
 {
 
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Philanthropy">Philanthropy</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact</a>
+    </li>
+
+}
+else
+{
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Itinerary" asp-action="Index">Itinerary</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Flight" asp-action="Index">Flights</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="Index">Hotels</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="ForFun" asp-action="Index">Activites</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Vote" asp-action="Index">Vote</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact</a>
     </li>
 }
 

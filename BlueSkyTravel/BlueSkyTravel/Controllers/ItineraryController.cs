@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BlueSkyTravel.Repositories;
 using BlueSkyTravel.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlueSkyTravel.Controllers
 {
@@ -19,6 +20,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Itinerary
+        [Authorize]
         public ViewResult Index()
         {
             var model = itineraryRepo.GetAll();
@@ -26,6 +28,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Itinerary/Details/5
+        [Authorize]
         public ViewResult Details(int id)
         {
             var model = itineraryRepo.GetById(id);
@@ -34,6 +37,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Itinerary/Create
         [HttpGet]
+        [Authorize]
         public ViewResult Create()
         {
             return View();
@@ -41,6 +45,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Itinerary/Create
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Itinerary itinerary)
         {
             itineraryRepo.Create(itinerary);
@@ -49,6 +54,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Itinerary/Edit/5
         [HttpGet]
+        [Authorize]
         public ViewResult Update(int id)
         {
             Itinerary model = itineraryRepo.GetById(id);
@@ -65,6 +71,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Itinerary/Delete/5
         [HttpGet]
+        [Authorize]
         public ViewResult Delete(int id)
         {
             Itinerary model = itineraryRepo.GetById(id);
@@ -73,6 +80,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Itinerary/Delete/5
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(Itinerary itinerary)
         {
             itineraryRepo.Delete(itinerary);

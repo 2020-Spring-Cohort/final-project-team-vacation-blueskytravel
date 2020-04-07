@@ -6,6 +6,7 @@ using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlueSkyTravel.Controllers
 {
@@ -18,6 +19,7 @@ namespace BlueSkyTravel.Controllers
             this.flightRepo = flightRepo;
         }
         // GET: Flight
+        [Authorize]
         public ViewResult Index()
         {
             var model = flightRepo.GetAll();
@@ -25,6 +27,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Flight/Details/5
+        [Authorize]
         public ViewResult Details(int id)
         {
             var model = flightRepo.GetById(id);
@@ -33,6 +36,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Flight/Create
         [HttpGet]
+        [Authorize]
         public ViewResult Create()
         {
             return View();
@@ -40,6 +44,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Flight/Create
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Flight flight)
         {
             flightRepo.Create(flight);
@@ -48,6 +53,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Flight/Edit/5
         [HttpGet]
+        [Authorize]
         public ViewResult Update(int id)
         {
             Flight model = flightRepo.GetById(id);
@@ -56,6 +62,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Flight/Edit/5
         [HttpPost]
+        [Authorize]
         public IActionResult Update(Flight flight)
         {
             flightRepo.Update(flight);
@@ -64,6 +71,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Flight/Delete/5
         [HttpGet]
+        [Authorize]
         public ViewResult Delete(int id)
         {
             Flight model = flightRepo.GetById(id);
@@ -72,6 +80,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Flight/Delete/5
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(Flight flight)
         {
             flightRepo.Delete(flight);
