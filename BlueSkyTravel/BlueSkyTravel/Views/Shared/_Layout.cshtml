@@ -33,6 +33,12 @@
             </div>
         </nav>
     </header>
+
+
+     @RenderSection("slider", required: false)
+     @RenderSection("jumbotron", required: false)
+     @RenderSection("services", required:false)
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
