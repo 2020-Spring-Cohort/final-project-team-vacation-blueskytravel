@@ -50,7 +50,7 @@ namespace BlueSkyTravel
             .AddDefaultTokenProviders();
             
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
 
             googleClientId = Configuration["Authentication:Google:ClientId"];
             googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
