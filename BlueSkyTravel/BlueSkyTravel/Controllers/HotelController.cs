@@ -37,8 +37,9 @@ namespace BlueSkyTravel.Controllers
         // GET: Hotel/Create
         [HttpGet]
         [Authorize]
-        public ActionResult Create()
+        public ActionResult CreateByItineraryId(int id)
         {
+            ViewBag.ItineraryId = id;
             return View();
         }
 
