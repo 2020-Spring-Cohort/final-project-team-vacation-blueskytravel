@@ -6,6 +6,7 @@ using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlueSkyTravel.Controllers
 {
@@ -18,6 +19,7 @@ namespace BlueSkyTravel.Controllers
             this.voteRepo = voteRepo;
         }
         // GET: Vote
+        [Authorize]
         public ViewResult Index()
         {
             var model = voteRepo.GetAll();
@@ -25,6 +27,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Vote/Details/5
+        [Authorize]
         public ViewResult Details(int id)
         {
             var model = voteRepo.GetById(id);
@@ -33,6 +36,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Vote/Create
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -40,6 +44,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Vote/Create
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Vote vote)
         {
             voteRepo.Create(vote);
@@ -48,6 +53,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Vote/Edit/5
         [HttpGet]
+        [Authorize]
         public ViewResult Update(int id)
         {
             Vote model = voteRepo.GetById(id);
@@ -56,7 +62,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Vote/Edit/5
         [HttpPost]
-
+        [Authorize]
         public IActionResult Update(Vote vote)
         {
             voteRepo.Update(vote);
@@ -65,6 +71,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: Vote/Delete/5
         [HttpGet]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             Vote model = voteRepo.GetById(id);
@@ -73,6 +80,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: Vote/Delete/5
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(Vote vote)
         {
             voteRepo.Delete(vote);
