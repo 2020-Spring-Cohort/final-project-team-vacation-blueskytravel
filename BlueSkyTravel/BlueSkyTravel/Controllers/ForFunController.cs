@@ -6,6 +6,7 @@ using BlueSkyTravel.Models;
 using BlueSkyTravel.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace BlueSkyTravel.Controllers
@@ -19,6 +20,7 @@ namespace BlueSkyTravel.Controllers
             this.funRepo = funRepo;
         }
         // GET: forFun
+        [Authorize]
         public ViewResult Index()
         {
             var model = funRepo.GetAll();
@@ -26,6 +28,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: forFun/Details/5
+        [Authorize]
         public ViewResult Details(int id)
         {
             var model = funRepo.GetById(id);
@@ -34,6 +37,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: forFun/Create
         [HttpGet]
+        [Authorize]
         public ViewResult Create()
         {
             return View();
@@ -41,6 +45,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: forFun/Create
         [HttpPost]
+        [Authorize]
         public IActionResult Create(ForFun forFun)
         {
             funRepo.Create(forFun);
@@ -49,6 +54,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: forFun/Edit/5
         [HttpGet]
+        [Authorize]
         public ViewResult Update(int id)
         {
             ForFun model = funRepo.GetById(id);
@@ -57,6 +63,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: forFun/Edit/5
         [HttpPost]
+        [Authorize]
         public IActionResult Update(ForFun forFun)
         {
             funRepo.Update(forFun);
@@ -65,6 +72,7 @@ namespace BlueSkyTravel.Controllers
 
         // GET: forFun/Delete/5
         [HttpGet]
+        [Authorize]
         public ViewResult Delete(int id)
         {
             ForFun model = funRepo.GetById(id);
@@ -73,6 +81,7 @@ namespace BlueSkyTravel.Controllers
 
         // POST: forFun/Delete/5
         [HttpPost]
+        [Authorize]
         public IActionResult Delete(ForFun forFun)
         {
             funRepo.Delete(forFun);
