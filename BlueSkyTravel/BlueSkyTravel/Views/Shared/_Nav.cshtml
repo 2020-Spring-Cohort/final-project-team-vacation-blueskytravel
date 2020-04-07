@@ -4,13 +4,28 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-@if (SignInManager.IsSignedIn(User))
+@if (!SignInManager.IsSignedIn(User))
 {
 
     <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">About</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Philanthropy">Philanthropy</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact</a>
+    </li>
+
+}
+else
+{
+    <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Itinerary" asp-action="Index">Itinerary</a>
     </li>
-  
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact</a>
+    </li>
 }
 
 
