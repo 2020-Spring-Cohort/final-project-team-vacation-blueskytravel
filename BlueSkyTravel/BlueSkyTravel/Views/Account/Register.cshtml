@@ -12,7 +12,9 @@
                 <p class="text-center">Get started with your free account</p>
                 <p>
                     <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-                    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via Facebook</a>
+                    <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Google</a>
+
                 </p>
                 <p class="divider-text">
                     <span class="bg-light">OR</span>
@@ -42,6 +44,7 @@
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
                         <input asp-for="Email" class="form-control" placeholder="Email address" type="email">
+                        <br />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
@@ -53,6 +56,7 @@
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input asp-for="Password" class="form-control" placeholder="Create password" type="password">
+                        <br />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
 
@@ -62,6 +66,7 @@
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" type="password">
+                        <br />
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
 
@@ -76,7 +81,7 @@
                     <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-city"></i> </span>
+                            <span class="input-group-text"> <i class="fas fa-flag-usa"></i> </span>
                         </div>
                         <input asp-for="State" class="form-control" placeholder="State" type="text">
                     </div>
