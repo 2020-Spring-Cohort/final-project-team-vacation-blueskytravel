@@ -1,4 +1,4 @@
-﻿@model BlueSkyTravel.Models.Itinerary
+@model BlueSkyTravel.Models.Itinerary
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -83,6 +83,7 @@
 <div id="hotels">
     @foreach (var item in Model.Hotels)
     {
+datetime-feature
         var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
         var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
         <div>
@@ -110,7 +111,9 @@
                 <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </div>
         </div>
+    </div>
     }
+    <a asp-controller="Hotel" asp-action="CreateByItineraryId">Create New Hotel</a>
 </div>
 <div id="activities">
     @foreach (var item in Model.ForFuns)

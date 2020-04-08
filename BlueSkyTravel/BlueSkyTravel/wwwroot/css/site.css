@@ -76,3 +76,86 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+
+a.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+
+    a.btn-facebook:hover {
+        background-color: #fff;
+        color: #405D9D;
+        outline: 1px solid #405D9D;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+a.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+    a.btn-twitter:hover {
+        background-color: #FFFFFF;
+        color: #42AEEC;
+        outline: 1px solid #42AEEC;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+
+a.btn-google {
+    background-color: #DB4437;
+    color: #fff;
+}
+
+    a.btn-google:hover {
+        background-color: #fff;
+        color: #DB4437;
+        outline: 1px solid #DB4437;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+.card {
+    max-width: 400px;
+    border-radius: .8em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.account {
+    padding-top: .5em;
+    max-width: 400px;
+   
+}
