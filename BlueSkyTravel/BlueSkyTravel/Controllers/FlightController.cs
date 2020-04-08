@@ -84,8 +84,9 @@ namespace BlueSkyTravel.Controllers
         [Authorize]
         public IActionResult Delete(Flight flight)
         {
+            var tempId = flight.ItineraryId;
             flightRepo.Delete(flight);
-            return RedirectToAction("Index", "Flight");
+            return RedirectToAction("Details", "Itinerary", new { id = tempId });
         }
     }
 }
