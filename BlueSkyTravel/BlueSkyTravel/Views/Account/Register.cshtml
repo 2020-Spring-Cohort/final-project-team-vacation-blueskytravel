@@ -18,64 +18,43 @@
                     <span class="bg-light">OR</span>
                 </p>
                 <form method="post">
-                     <div asp-validation-summary="All" class="text-danger"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
 
-                        <!-- form-group// -->
+                    <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
                         <input asp-for="FirstName" class="form-control" placeholder="First name" type="text">
-                    </div> 
+                    </div>
 
-                        <!-- form-group// -->
+                    <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input asp-for="LastName"class="form-control" placeholder="Last name" type="text">
-                    </div> 
-    
-    <!-- form-group// -->
+                        <input asp-for="LastName" class="form-control" placeholder="Last name" type="text">
+                    </div>
+
+                    <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
                         <input asp-for="Email" class="form-control" placeholder="Email address" type="email">
                         <span asp-validation-for="Email" class="text-danger"></span>
-                    </div> 
-    
-    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-                        </div>
-                        <select class="custom-select" style="max-width: 120px;">
-                            <option selected="">+971</option>
-                            <option value="1">+972</option>
-                            <option value="2">+198</option>
-                            <option value="3">+701</option>
-                        </select>
-                        <input name="" class="form-control" placeholder="Phone number" type="text">
-                    </div> 
-    
-    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-city"></i> </span>
-                        </div>
-                        <input asp-for="Password" class="form-control" placeholder="City" type="text">
-                          <span asp-validation-for="Password" class="text-danger"></span>
-                    </div> 
+                    </div>
 
-    <!-- form-group end.// -->
+
+
+                    <!-- form-group end.// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input asp-for="Password" class="form-control" placeholder="Create password" type="password">
-                          <span asp-validation-for="Password" class="text-danger"></span>
-                    </div> 
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
 
                     <!-- form-group end.// -->
                     <div class="form-group input-group">
@@ -83,15 +62,31 @@
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>
                         <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" type="password">
-                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                    </div> 
-    
-    <!-- form-group// -->
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-city"></i> </span>
+                        </div>
+                        <input asp-for="City" class="form-control" placeholder="City" type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-city"></i> </span>
+                        </div>
+                        <input asp-for="State" class="form-control" placeholder="State" type="text">
+                    </div>
+
+                    <!-- form-group// -->
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-                    </div> 
-    
-    <!-- form-group// -->
+                    </div>
+
+                    <!-- form-group// -->
                     <p class="text-center">Have an account? <a href="">Log In</a> </p>
                 </form>
             </article>
@@ -105,7 +100,8 @@
 
 
 
-<div class="row">
+<!-- 
+    <div class="row">
     <div class="col-md-12">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -149,7 +145,9 @@
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
-</div>
+</div> 
+    
+    -->
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
