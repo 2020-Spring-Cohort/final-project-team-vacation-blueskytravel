@@ -202,6 +202,15 @@ a.btn-Google, button.btn.btn-Google {
    
 }
 
+
+.itinerary-items {
+
+    border: solid 2px black;
+    padding: 2em;
+    margin: 3em auto;
+    
+}
+
 /*---Bug Fix --*/
 .carousel-item {
     transition: -webkit-transform 0.5s ease;
@@ -214,4 +223,5 @@ a.btn-Google, button.btn.btn-Google {
 /*--- Bootstrap Padding Fix --*/
 [class*="col-"] {
     padding: 1rem;
+
 }

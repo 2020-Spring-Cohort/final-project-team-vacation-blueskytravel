@@ -6,142 +6,200 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Your Upcoming Trip</h1>
 
-<div>
+<div class="itinerary-items">
 
-    @{ 
+    @{
         var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
         var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
 
 
-    <h4>Itinerary</h4>
-    <hr />
-    <dl class="row">
+        <h4>@Model.TripName</h4>
+        <hr />
+        <dl class="row">
 
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TravelDateStart)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => dateStartValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TravelDateFinish)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => dateEndValue)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Destination)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Destination)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Budget)
-        </dt>
-        <dd class="col-sm-10">
-            $@Html.DisplayFor(model => model.Budget)
-        </dd>
-    </dl>
-        }
-</div>
-<div>
+            <dt class="col-sm-2">
+                Trip Begins:
+                @*@Html.DisplayNameFor(model => model.TravelDateStart)*@
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => dateStartValue)
+            </dd>
+            <dt class="col-sm-2">
+                Trip Ends:
+                @*@Html.DisplayNameFor(model => model.TravelDateFinish)*@
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => dateEndValue)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Destination):
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Destination)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Budget):
+            </dt>
+            <dd class="col-sm-10">
+                $@Html.DisplayFor(model => model.Budget)
+            </dd>
+        </dl>
+    }
+
     <a asp-controller="Itinerary" asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-<div id="flights">
+
+<div class="itinerary-items" id="flights">
+    <h4>Flight Plan</h4>
+    <hr />
     @foreach (var item in Model.Flights)
     {
-        <div>
-            <p>
+        <dl class="row">
+            <dt class="col-sm-2">
+                Airline:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.AirlineName)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Flight Number:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.FlightNumber)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Arrival:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.ArrivalDate)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Departure:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.DepartureDate)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Airfare:
+            </dt>
+            <dd class="col-sm-10">
                 $@Html.DisplayFor(modelItem => item.Fare)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Itinerary.Id)
-            </p>
-            <div>
-                <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-controller="Flight" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </div>
+            </dd>
+            @*<p>
+                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
+                </p>*@
+        </dl>
+        <div>
+            <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+            <a asp-controller="Flight" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         </div>
     }
     <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Flight</a>
 </div>
-<div id="hotels">
+
+<div class="itinerary-items" id="hotels">
+    <h4>Resort Reservations</h4>
+    <hr />
     @foreach (var item in Model.Hotels)
     {
         var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
         var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
-        <div>
-            <p>
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                Hotel:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.Name)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Address:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => item.Address)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Check-In:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => dateStartHotel)
-            </p>
-            <p>
+            </dd>
+            <dt class="col-sm-2">
+                Check-Out:
+            </dt>
+            <dd class="col-sm-10">
                 @Html.DisplayFor(modelItem => dateEndHotel)
-            </p>
-            <p>
-                $@Html.DisplayFor(modelItem => item.NightlyRate)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Itinerary.Id)
-            </p>
-            <div>
-                <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </div>
+            </dd>
+            <dt class="col-sm-2">
+                Rate:
+            </dt>
+            <dd class="col-sm-10">
+                $@Html.DisplayFor(modelItem => item.NightlyRate)/Night
+            </dd>
+            @*<p>
+                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
+                </p>*@
+        </dl>
+        <div>
+            <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         </div>
     }
     <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Hotel</a>
 </div>
-<div id="activities">
+
+<div class="itinerary-items" id="activities">
+    <h4>Plans</h4>
+    <hr />
     @foreach (var item in Model.ForFuns)
     {
+<dl class="row">
+    <dt class="col-sm-2">
+        Activity:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Name)
+    </dd>
+    <dt class="col-sm-2">
+        Date and Time:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.EventTime)
+    </dd>
+    <dt class="col-sm-2">
+        Cost:
+    </dt>
+    <dd class="col-sm-10">
+        $@Html.DisplayFor(modelItem => item.Fare) per Person
+    </dd>
+    <dt class="col-sm-2">
+        Approval:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.IsApproved)
+    </dd>
+    <dt class="col-sm-2">
+        Location:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Location)
+    </dd>
+    @*<p>
+        @Html.DisplayFor(modelItem => item.Itinerary.Id)
+    </p>*@
+</dl>
+
         <div>
-            <p>
-                @Html.DisplayFor(modelItem => item.Name)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.EventTime)
-            </p>
-            <p>
-                $@Html.DisplayFor(modelItem => item.Fare)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.IsApproved)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Location)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Itinerary.Id)
-            </p>
-            <div>
-                <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </div>
+            <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+            <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         </div>
     }
+
     <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add An Activity</a>
 </div>
