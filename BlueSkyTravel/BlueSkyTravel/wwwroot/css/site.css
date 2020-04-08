@@ -111,6 +111,10 @@ a.btn-facebook {
         background-color: #fff;
         color: #405D9D;
         outline: 1px solid #405D9D;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
     }
 
 a.btn-twitter {
@@ -122,6 +126,10 @@ a.btn-twitter {
         background-color: #FFFFFF;
         color: #42AEEC;
         outline: 1px solid #42AEEC;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
     }
 
 
@@ -134,6 +142,10 @@ a.btn-google {
         background-color: #fff;
         color: #DB4437;
         outline: 1px solid #DB4437;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
     }
 
 .card {
