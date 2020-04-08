@@ -154,32 +154,50 @@
 </div>
 
 <div class="itinerary-items" id="activities">
+    <h4>Plans</h4>
+    <hr />
     @foreach (var item in Model.ForFuns)
     {
+<dl class="row">
+    <dt class="col-sm-2">
+        Activity:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Name)
+    </dd>
+    <dt class="col-sm-2">
+        Date and Time:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.EventTime)
+    </dd>
+    <dt class="col-sm-2">
+        Cost:
+    </dt>
+    <dd class="col-sm-10">
+        $@Html.DisplayFor(modelItem => item.Fare) per Person
+    </dd>
+    <dt class="col-sm-2">
+        Approval:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.IsApproved)
+    </dd>
+    <dt class="col-sm-2">
+        Location:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Location)
+    </dd>
+    @*<p>
+        @Html.DisplayFor(modelItem => item.Itinerary.Id)
+    </p>*@
+</dl>
+
         <div>
-            <p>
-                @Html.DisplayFor(modelItem => item.Name)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.EventTime)
-            </p>
-            <p>
-                $@Html.DisplayFor(modelItem => item.Fare)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.IsApproved)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Location)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Itinerary.Id)
-            </p>
-            <div>
-                <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </div>
+            <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+            <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         </div>
     }
 </div>
