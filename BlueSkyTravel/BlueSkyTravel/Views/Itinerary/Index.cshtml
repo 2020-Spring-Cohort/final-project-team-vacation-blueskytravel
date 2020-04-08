@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Your Itineraries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -15,13 +15,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TripName)
+                Vacation
+                @*@Html.DisplayNameFor(model => model.TripName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelDateStart)
+                Trip Begins
+                @*@Html.DisplayNameFor(model => model.TravelDateStart)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelDateFinish)
+                Trip Ends
+                @*@Html.DisplayNameFor(model => model.TravelDateFinish)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Destination)
@@ -51,7 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Destination)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Budget)
+                $@Html.DisplayFor(modelItem => item.Budget)
             </td>
             <td>
                 <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
