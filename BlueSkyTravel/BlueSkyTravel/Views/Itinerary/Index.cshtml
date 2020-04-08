@@ -35,17 +35,17 @@
     <tbody>
 @foreach (var item in Model) {
 
-    var dateStartValue = item.TravelDateStart.ToString("MM/dd/yyyy");
-    var dateEndValue = item.TravelDateFinish.ToString("MM/dd/yyyy");
+    var dateStart = item.TravelDateStart.ToString("MM/dd/yyyy");
+    var dateEnd = item.TravelDateFinish.ToString("MM/dd/yyyy");
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TripName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => dateStartValue)
+                @Html.DisplayFor(modelItem => dateStart)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => dateEndValue)
+                @Html.DisplayFor(modelItem => dateEnd)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Destination)

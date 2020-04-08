@@ -9,20 +9,27 @@
 <h1>Details</h1>
 
 <div>
+
+    @{ 
+        var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
+        var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
+
+
     <h4>Itinerary</h4>
     <hr />
     <dl class="row">
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TravelDateStart)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TravelDateStart)
+            @Html.DisplayFor(model => dateStartValue)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TravelDateFinish)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TravelDateFinish)
+            @Html.DisplayFor(model => dateEndValue)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Destination)
@@ -37,6 +44,7 @@
             @Html.DisplayFor(model => model.Budget)
         </dd>
     </dl>
+        }
 </div>
 <div>
     <a asp-controller="Itinerary" asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
@@ -75,6 +83,8 @@
 <div id="hotels">
     @foreach (var item in Model.Hotels)
     {
+        var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
+        var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
         <div>
             <p>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -83,10 +93,10 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </p>
             <p>
-                @Html.DisplayFor(modelItem => item.CheckIn)
+                @Html.DisplayFor(modelItem => dateStartHotel)
             </p>
             <p>
-                @Html.DisplayFor(modelItem => item.CheckOut)
+                @Html.DisplayFor(modelItem => dateEndHotel)
             </p>
             <p>
                 @Html.DisplayFor(modelItem => item.NightlyRate)
@@ -125,9 +135,9 @@
                 @Html.DisplayFor(modelItem => item.Itinerary.Id)
             </p>
             <div>
-                <a  asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a  asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a  asp-controller="ForFun"  asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </div>
         </div>
     }
