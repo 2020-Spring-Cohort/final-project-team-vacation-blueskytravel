@@ -133,12 +133,12 @@ a.btn-Twitter, button.btn-Twitter {
     }
 
 
-a.btn-Google, btn.btn-Google {
+a.btn-Google, button.btn.btn-Google {
     background-color: #DB4437;
     color: #fff;
 }
 
-    a.btn-Google:hover, btn.btn-Google:hover {
+    a.btn-Google:hover, button.btn.btn-Google:hover {
         background-color: #fff;
         color: #DB4437;
         outline: 1px solid #DB4437;

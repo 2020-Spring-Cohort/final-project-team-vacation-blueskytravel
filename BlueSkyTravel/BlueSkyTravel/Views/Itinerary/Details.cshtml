@@ -79,11 +79,11 @@
             </div>
         </div>
     }
+    <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Flight</a>
 </div>
 <div id="hotels">
     @foreach (var item in Model.Hotels)
     {
-datetime-feature
         var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
         var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
         <div>
@@ -111,9 +111,8 @@ datetime-feature
                 <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </div>
         </div>
-    </div>
     }
-    <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Create New Hotel</a>
+    <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Hotel</a>
 </div>
 <div id="activities">
     @foreach (var item in Model.ForFuns)

@@ -22,15 +22,17 @@
         else
         {
         <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
-            <div>
-                <p>
-                    @foreach (var provider in Model.ExternalLogins)
-                    {
-                    <a href="#" type="submit" class="btn btn-block btn-@provider.Name" name="provider" style="width:auto" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName </a>
-                    }
-                </p>
-            </div>
-        </form>
+                <div>
+                    <p>
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                        var myProvider = @provider.Name.ToLower();
+                        <button type="submit" class="btn btn-block btn-@provider.Name" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-@myProvider"></i> Login via @provider.DisplayName </button>
+                        }
+                    </p>
+                </div>
+            </form>
+
         }
         }
 
