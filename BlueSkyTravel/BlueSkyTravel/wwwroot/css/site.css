@@ -102,12 +102,12 @@ body {
         z-index: 1;
     }
 
-a.btn-facebook {
+a.btn-Facebook, button.btn-Facebook {
     background-color: #405D9D;
     color: #fff;
 }
 
-    a.btn-facebook:hover {
+    a.btn-Facebook:hover, button.btn-Facebook:hover {
         background-color: #fff;
         color: #405D9D;
         outline: 1px solid #405D9D;
@@ -117,12 +117,12 @@ a.btn-facebook {
         transition: background-color .8s ease-out;
     }
 
-a.btn-twitter {
+a.btn-Twitter, button.btn-Twitter {
     background-color: #42AEEC;
     color: #fff;
 }
 
-    a.btn-twitter:hover {
+    a.btn-Twitter:hover, button.btn-Twitter:hover {
         background-color: #FFFFFF;
         color: #42AEEC;
         outline: 1px solid #42AEEC;
@@ -133,12 +133,12 @@ a.btn-twitter {
     }
 
 
-a.btn-google {
+a.btn-Google, btn.btn-Google {
     background-color: #DB4437;
     color: #fff;
 }
 
-    a.btn-google:hover {
+    a.btn-Google:hover, btn.btn-Google:hover {
         background-color: #fff;
         color: #DB4437;
         outline: 1px solid #DB4437;

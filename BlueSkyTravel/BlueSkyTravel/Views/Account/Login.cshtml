@@ -9,12 +9,31 @@
     <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Create Account</h4>
         <p class="text-center">Get started with your free account</p>
-        <p>
-            <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-            <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via Facebook</a>
-            <a href="" class="btn btn-block btn-google"> <i class="fab fa-google"></i>   Login via Google</a>
+        @{
+        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+        {
+        <div>
+            <p>
+                There are no external authentication services configured
+            </p>
+        </div>
+        }
 
-        </p>
+        else
+        {
+        <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
+            <div>
+                <p>
+                    @foreach (var provider in Model.ExternalLogins)
+                    {
+                    <a href="#" type="submit" class="btn btn-block btn-@provider.Name" name="provider" style="width:auto" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName </a>
+                    }
+                </p>
+            </div>
+        </form>
+        }
+        }
+
         <p class="divider-text">
             <span class="bg-light">OR</span>
         </p>
@@ -72,79 +91,6 @@
 
 
 
-
-<div class="row">
-    <div class="col-md-6">
-        <h1>Local Account Login</h1>
-        <form method="post">
-            <h4>Use a local account to log in.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            
-            <div class="form-group">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <div class="checkbox">
-                    <label asp-for="RememberMe">
-                        <input asp-for="RememberMe" />
-                        @Html.DisplayNameFor(m => m.RememberMe)
-                    </label>
-                </div>
-            </div>
-           
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Log in</button>
-            </div>
-           
-            <div class="form-group">
-                <p>
-                    @Html.ActionLink("Register", "Register", "Account")
-                </p>
-            </div>
-
-        </form>
-    </div>
-
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>External Login</h4>
-            <hr />
-            @{
-            if ((Model.ExternalLogins?.Count ?? 0) == 0)
-            {
-            <div>
-                <p>
-                    There are no external authentication services configured
-                </p>
-            </div>
-            }
-            else
-            {
-            <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
-                <div>
-                    <p>
-                        @foreach (var provider in Model.ExternalLogins)
-                        {
-                        <button type="submit" class="btn btn-primary" name="provider" style="width:auto" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName </button>
-                        }
-                    </p>
-                </div>
-            </form>
-            }
-            }
-        </section>
-    </div>
-</div>
 
 @section Scripts {
 <partial name="_ValidationScriptsPartial" />

@@ -101,7 +101,7 @@
         </div>
     </div>
     }
-    <a asp-controller="Hotel" asp-action="CreateByItineraryId">Create New Hotel</a>
+    <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Create New Hotel</a>
 </div>
 <div id="activities">
     @foreach (var item in Model.ForFuns)

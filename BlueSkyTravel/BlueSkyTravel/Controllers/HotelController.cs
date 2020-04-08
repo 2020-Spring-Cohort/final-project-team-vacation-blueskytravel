@@ -49,7 +49,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Create(Hotel hotel)
         {
             hotelRepo.Create(hotel);
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Itinerary", new { id = hotel.ItineraryId });
         }
 
         // GET: Hotel/Edit/5
