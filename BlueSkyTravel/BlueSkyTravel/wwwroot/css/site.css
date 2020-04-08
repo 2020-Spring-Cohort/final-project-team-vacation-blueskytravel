@@ -1,6 +1,11 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+html body {
+height: 100%;
+width: 100%;
 
+
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -158,4 +163,18 @@ a.btn-Google, button.btn.btn-Google {
     padding-top: .5em;
     max-width: 400px;
    
+}
+
+/*---Bug Fix --*/
+.carousel-item {
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
 }

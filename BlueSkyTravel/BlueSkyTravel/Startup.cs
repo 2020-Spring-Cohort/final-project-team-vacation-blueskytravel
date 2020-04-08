@@ -64,9 +64,12 @@ namespace BlueSkyTravel
                     googleOptions.ClientId = googleAuthNSection["ClientId"];
                     googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
                 })
-                //.AddTwitter(twitterOptions => 
-                //{ 
-                //    })
+                .AddTwitter(twitterOptions => 
+                {
+                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
+                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                    twitterOptions.RetrieveUserDetails = true;
+                })
                 .AddFacebook(facebookOptions => 
                 {
                     facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
