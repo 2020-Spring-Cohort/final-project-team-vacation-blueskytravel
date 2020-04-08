@@ -1,4 +1,4 @@
-﻿@model BlueSkyTravel.Models.Itinerary
+@model BlueSkyTravel.Models.Itinerary
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
@@ -9,20 +9,27 @@
 <h1>Details</h1>
 
 <div>
+
+    @{ 
+        var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
+        var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
+
+
     <h4>Itinerary</h4>
     <hr />
     <dl class="row">
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TravelDateStart)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TravelDateStart)
+            @Html.DisplayFor(model => dateStartValue)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TravelDateFinish)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TravelDateFinish)
+            @Html.DisplayFor(model => dateEndValue)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Destination)
@@ -34,9 +41,10 @@
             @Html.DisplayNameFor(model => model.Budget)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Budget)
+            $@Html.DisplayFor(model => model.Budget)
         </dd>
     </dl>
+        }
 </div>
 <div>
     <a asp-controller="Itinerary" asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
@@ -59,7 +67,7 @@
                 @Html.DisplayFor(modelItem => item.DepartureDate)
             </p>
             <p>
-                @Html.DisplayFor(modelItem => item.Fare)
+                $@Html.DisplayFor(modelItem => item.Fare)
             </p>
             <p>
                 @Html.DisplayFor(modelItem => item.Itinerary.Id)
@@ -75,29 +83,33 @@
 <div id="hotels">
     @foreach (var item in Model.Hotels)
     {
-    <div>
-        <p>
-            @Html.DisplayFor(modelItem => item.Name)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Address)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.CheckIn)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.CheckOut)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.NightlyRate)
-        </p>
-        <p>
-            @Html.DisplayFor(modelItem => item.Itinerary.Id)
-        </p>
+datetime-feature
+        var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
+        var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
         <div>
-            <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <p>
+                @Html.DisplayFor(modelItem => item.Name)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Address)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => dateStartHotel)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => dateEndHotel)
+            </p>
+            <p>
+                $@Html.DisplayFor(modelItem => item.NightlyRate)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>
+            <div>
+                <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
         </div>
     </div>
     }
@@ -114,7 +126,7 @@
                 @Html.DisplayFor(modelItem => item.EventTime)
             </p>
             <p>
-                @Html.DisplayFor(modelItem => item.Fare)
+                $@Html.DisplayFor(modelItem => item.Fare)
             </p>
             <p>
                 @Html.DisplayFor(modelItem => item.IsApproved)
@@ -126,9 +138,9 @@
                 @Html.DisplayFor(modelItem => item.Itinerary.Id)
             </p>
             <div>
-                <a  asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a  asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a  asp-controller="ForFun"  asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+                <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </div>
         </div>
     }
