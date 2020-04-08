@@ -63,8 +63,8 @@ namespace BlueSkyTravel
                 })
                 .AddFacebook(options =>
                 {
-                    options.AppId = "245899396584726";
-                    options.AppSecret = "e1f242444c49e759d19eeaab94dc2e0a";
+                    options.AppId = "225804278486064";
+                    options.AppSecret = "a09c71f08cfb4d1b458c555560defdfe";
                 })
                 .AddTwitter(options =>
                 {

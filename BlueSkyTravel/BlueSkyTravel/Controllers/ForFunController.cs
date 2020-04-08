@@ -85,10 +85,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Delete(ForFun forFun)
         {
             funRepo.Delete(forFun);
-            return RedirectToAction("Index", "ForFun");
+            return RedirectToAction("Details", "Itinerary", new { id = forFun.ItineraryId });
         }
-
-
-
     }
 }

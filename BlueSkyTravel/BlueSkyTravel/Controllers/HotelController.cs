@@ -85,7 +85,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Delete(Hotel hotel)
         {
             hotelRepo.Delete(hotel);
-            return RedirectToAction("Index", "Hotel");
+            return RedirectToAction("Details", "Itinerary", new { id = hotel.ItineraryId });
         }
     }
 }
