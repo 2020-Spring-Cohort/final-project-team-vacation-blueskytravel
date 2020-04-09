@@ -5,72 +5,95 @@
     ViewBag.Title = "User Login";
 }
 
-<div class="row">
-    <div class="col-md-6">
-            <h1>Local Account Login</h1>
-            <form method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="RememberMe">
-                            <input asp-for="RememberMe" />
-                            @Html.DisplayNameFor(m => m.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
+<div class="card bg-light mx-auto">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Login</h4>
+        <p class="text-center">Experience Greatness Today!</p>
+        @{
+        if ((Model.ExternalLogins?.Count ?? 0) == 0)
+        {
+        <div>
+            <p>
+                There are no external authentication services configured
+            </p>
+        </div>
+        }
+
+        else
+        {
+        <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
+                <div>
                     <p>
-                        @Html.ActionLink("Register", "Register", "Account")
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                        var myProvider = @provider.Name.ToLower();
+                        <button type="submit" class="btn btn-block btn-@provider.Name" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"><i class="fab fa-@myProvider"></i> Login via @provider.DisplayName </button>
+                        }
                     </p>
                 </div>
             </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>External Login</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" style="width:auto" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName </button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+
+        }
+        }
+
+        <p class="divider-text">
+            <span class="bg-light">OR</span>
+        </p>
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                </div>
+                <input asp-for="Email" class="form-control" placeholder="Email address" type="email">
+                <br />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+
+            <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input asp-for="Password" class="form-control" placeholder="Enter Password" type="password">
+                <br />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                </div>
+            </div>
+
+
+            <!-- form-group// -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </div>
+
+            <!-- form-group// -->
+            <div class="form-group">
+                <p>
+                    @Html.ActionLink("Register", "Register", "Account")
+                </p>
+            </div>
+
+        </form>
+    </article>
 </div>
 
+
+
+
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+<partial name="_ValidationScriptsPartial" />
 }

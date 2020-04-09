@@ -15,33 +15,32 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="AirlineName" class="control-label"></label>
+                <label asp-for="AirlineName" class="control-label">Airline Name</label>
                 <input asp-for="AirlineName" class="form-control" />
                 <span asp-validation-for="AirlineName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FlightNumber" class="control-label"></label>
+                <label asp-for="FlightNumber" class="control-label">Flight Number</label>
                 <input asp-for="FlightNumber" class="form-control" />
                 <span asp-validation-for="FlightNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ArrivalDate" class="control-label"></label>
+                <label asp-for="ArrivalDate" class="control-label">Arrival Date</label>
                 <input asp-for="ArrivalDate" class="form-control" />
                 <span asp-validation-for="ArrivalDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DepartureDate" class="control-label"></label>
+                <label asp-for="DepartureDate" class="control-label">Departure Date</label>
                 <input asp-for="DepartureDate" class="form-control" />
                 <span asp-validation-for="DepartureDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fare" class="control-label"></label>
+                <label asp-for="Fare" class="control-label">Flight Fare</label>
                 <input asp-for="Fare" class="form-control" />
                 <span asp-validation-for="Fare" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ItineraryId" class="control-label"></label>
-                <input asp-for="ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId"></input>
+                <input asp-for="ItineraryId" type="hidden" value="@ViewBag.ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -51,7 +50,7 @@
 </div>
 
 <div>
-    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@Model.ItineraryId">Back to List</a>
+    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@ViewBag.ItineraryId">Back to List</a>
 </div>
 
 @section Scripts {
