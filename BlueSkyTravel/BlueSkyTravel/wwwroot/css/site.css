@@ -40,6 +40,8 @@ a.navbar-brand {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    background-color: rgba(0,0,0,.6);
+    border-radius: .5em;
 }
 
 .carousel-caption h1{
