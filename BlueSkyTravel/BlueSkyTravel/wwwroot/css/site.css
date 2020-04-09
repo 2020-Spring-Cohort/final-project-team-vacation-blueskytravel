@@ -229,3 +229,8 @@ a.btn-Google, button.btn.btn-Google {
 div span.text-danger::before {
     content: "\A";
 }
+
+.headshot {
+    width: 100%;
+    height: 350px;
+}
