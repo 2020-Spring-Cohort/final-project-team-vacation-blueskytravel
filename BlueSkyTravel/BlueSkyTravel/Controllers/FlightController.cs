@@ -37,8 +37,9 @@ namespace BlueSkyTravel.Controllers
         // GET: Flight/Create
         [HttpGet]
         [Authorize]
-        public ViewResult Create()
+        public ViewResult CreateByItineraryId(int id)
         {
+            ViewBag.ItineraryId = id;
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace BlueSkyTravel.Controllers
         public IActionResult Create(Flight flight)
         {
             flightRepo.Create(flight);
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Itinerary", new { id = flight.ItineraryId });
         }
 
         // GET: Flight/Edit/5
@@ -83,8 +84,9 @@ namespace BlueSkyTravel.Controllers
         [Authorize]
         public IActionResult Delete(Flight flight)
         {
+            var tempId = flight.ItineraryId;
             flightRepo.Delete(flight);
-            return RedirectToAction("Index", "Flight");
+            return RedirectToAction("Details", "Itinerary", new { id = tempId });
         }
     }
 }

@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Your Itineraries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -15,13 +15,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TripName)
+                Vacation
+                @*@Html.DisplayNameFor(model => model.TripName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelDateStart)
+                Trip Begins
+                @*@Html.DisplayNameFor(model => model.TravelDateStart)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TravelDateFinish)
+                Trip Ends
+                @*@Html.DisplayNameFor(model => model.TravelDateFinish)*@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Destination)
@@ -34,21 +37,24 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+
+    var dateStart = item.TravelDateStart.ToString("MM/dd/yyyy");
+    var dateEnd = item.TravelDateFinish.ToString("MM/dd/yyyy");
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TripName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TravelDateStart)
+                @Html.DisplayFor(modelItem => dateStart)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TravelDateFinish)
+                @Html.DisplayFor(modelItem => dateEnd)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Destination)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Budget)
+                $@Html.DisplayFor(modelItem => item.Budget)
             </td>
             <td>
                 <a asp-action="Update" asp-route-id="@item.Id">Update</a> |

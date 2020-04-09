@@ -56,22 +56,45 @@ namespace BlueSkyTravel
             googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
 
             services.AddAuthentication()
-                .AddGoogle(options =>
+                .AddGoogle(googleOptions =>
                 {
-                    options.ClientId = googleClientId;
-                    options.ClientSecret = googleClientSecret;
+                    IConfigurationSection googleAuthNSection =
+                Configuration.GetSection("Authentication:Google");
+
+                    googleOptions.ClientId = googleAuthNSection["ClientId"];
+                    googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
                 })
-                .AddFacebook(options =>
+                .AddTwitter(twitterOptions => 
                 {
-                    options.AppId = "245899396584726";
-                    options.AppSecret = "e1f242444c49e759d19eeaab94dc2e0a";
+                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
+                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                    twitterOptions.RetrieveUserDetails = true;
                 })
-                .AddTwitter(options =>
+                .AddFacebook(facebookOptions => 
                 {
-                    options.ConsumerKey = "fMMpNfnH3oDzdXSJ0fq558fow";
-                    options.ConsumerSecret = "cBeCunIByEJzrQuf42jWmDRcYMCoJARUhb4ARRcj6TDmDG2kmI";
-                    options.RetrieveUserDetails = true;
+                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                 });
+
+            //services.AddAuthentication()
+            //    .AddGoogle(options =>
+            //    {
+            //        options.ClientId = googleClientId;
+            //        options.ClientSecret = googleClientSecret;
+            //    })
+            //    .AddFacebook(options =>
+            //    {
+            //        options.AppId = Configuration["Authentication:Facebook:AppId"];
+            //        ;
+            //        options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //        ;
+            //    })
+            //    .AddTwitter(options =>
+            //    {
+            //        options.ConsumerKey = "fMMpNfnH3oDzdXSJ0fq558fow";
+            //        options.ConsumerSecret = "cBeCunIByEJzrQuf42jWmDRcYMCoJARUhb4ARRcj6TDmDG2kmI";
+            //        options.RetrieveUserDetails = true;
+            //    });
 
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();

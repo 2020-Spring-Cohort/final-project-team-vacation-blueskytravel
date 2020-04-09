@@ -1,6 +1,25 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+html body {
+height: 100%;
+width: 100%;
 
+}
+
+.navbar {
+padding: .8rem;
+
+}
+
+.navbar-nav li {
+padding-right: 1.3rem;
+
+}
+
+.nav-link {
+font-size: 1.1em !important;
+
+}
 
 a.navbar-brand {
   white-space: normal;
@@ -11,6 +30,29 @@ a.navbar-brand {
 #navlogo{
     height:3em;
 }
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-caption h1{
+    font-size: 500%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #405D9D;
+}
+
+    .carousel-caption h3 {
+        font-size: 200%;
+        font-weight: 500;
+        text-shadow: 1px 1px 1px 10px #405D9D;
+    }
 
 
 /* Provide sufficient contrast against white background */
@@ -75,4 +117,115 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    .divider-text span {
+        padding: 7px;
+        font-size: 12px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .divider-text:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        top: 55%;
+        left: 0;
+        z-index: 1;
+    }
+
+a.btn-Facebook, button.btn-Facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+
+    a.btn-Facebook:hover, button.btn-Facebook:hover {
+        background-color: #fff;
+        color: #405D9D;
+        outline: 1px solid #405D9D;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+a.btn-Twitter, button.btn-Twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+    a.btn-Twitter:hover, button.btn-Twitter:hover {
+        background-color: #FFFFFF;
+        color: #42AEEC;
+        outline: 1px solid #42AEEC;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+
+a.btn-Google, button.btn.btn-Google {
+    background-color: #DB4437;
+    color: #fff;
+}
+
+    a.btn-Google:hover, button.btn.btn-Google:hover {
+        background-color: #fff;
+        color: #DB4437;
+        outline: 1px solid #DB4437;
+        -webkit-transition: background-color .8s ease-out;
+        -moz-transition: background-color .8s ease-out;
+        -o-transition: background-color .8s ease-out;
+        transition: background-color .8s ease-out;
+    }
+
+.card {
+    max-width: 400px;
+    border-radius: .8em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.account {
+    padding-top: .5em;
+    max-width: 400px;
+   
+}
+
+
+.itinerary-items {
+
+    border: solid 2px black;
+    padding: 2em;
+    margin: 3em auto;
+    
+}
+
+/*---Bug Fix --*/
+.carousel-item {
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+
+}
+
+div span.text-danger::before {
+    content: "\A";
 }

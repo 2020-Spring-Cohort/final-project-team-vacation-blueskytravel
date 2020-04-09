@@ -5,47 +5,99 @@
     ViewBag.Title = "User Registration";
 }
 
-<h1>User Registration</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email">Email Address</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password">Password</label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword">Confirm Password</label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstName">First Name</label>
-                <input asp-for="FirstName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName">Last Name</label>
-                <input asp-for="LastName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="City">City</label>
-                <input asp-for="City" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="State">State</label>
-                <input asp-for="State" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
-</div>
+   <div class="card bg-light mx-auto">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                <p>
+                    <a asp-action="Login" asp-controller="Account" class="btn btn-block btn-Twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                    <a asp-action="Login" asp-controller="Account" class="btn btn-block btn-Facebook"> <i class="fab fa-facebook-f"></i>   Login via Facebook</a>
+                    <a asp-action="Login" asp-controller="Account" class="btn btn-block btn-Google"> <i class="fab fa-google"></i>   Login via Google</a>
+
+                </p>
+                <p class="divider-text">
+                    <span class="bg-light">OR</span>
+                </p>
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="FirstName" class="form-control" placeholder="First name" type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input asp-for="LastName" class="form-control" placeholder="Last name" type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input asp-for="Email" class="form-control" placeholder="Email address" type="email">
+                        <br />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+
+
+                    <!-- form-group end.// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input asp-for="Password" class="form-control" placeholder="Create password" type="password">
+                        <br />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <!-- form-group end.// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" type="password">
+                        <br />
+                      
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-city"></i> </span>
+                        </div>
+                        <input asp-for="City" class="form-control" placeholder="City" type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-flag-usa"></i> </span>
+                        </div>
+                        <input asp-for="State" class="form-control" placeholder="State" type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                    </div>
+
+                    <!-- form-group// -->
+                    <p class="text-center">Have an account? <a asp-action="Login" asp-controller="Account">Log In</a> </p>
+                </form>
+            </article>
+        </div> 
+    
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
