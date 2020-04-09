@@ -5,6 +5,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Models\Activity.cs" />
+    <Compile Remove="Views\Home\AboutUs.g.cs" />
+    <Compile Remove="Views\Home\Index.g.cs" />
+    <Compile Remove="Views\Home\Philanthropy.g.cs" />
+    <Compile Remove="Views\Home\Privacy.g.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Controllers\NewFile.txt" />
