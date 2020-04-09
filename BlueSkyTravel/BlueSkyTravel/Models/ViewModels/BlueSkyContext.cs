@@ -15,7 +15,6 @@ namespace BlueSkyTravel
         public DbSet<Flight> Flights { get; set; }
         public DbSet<ForFun> ForFuns { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
-        public DbSet<Vote> Votes { get; set; }
 
         public BlueSkyContext(DbContextOptions<BlueSkyContext> options)
             : base(options)
@@ -37,6 +36,7 @@ namespace BlueSkyTravel
             modelBuilder.Entity<Itinerary>().HasData(
                 new Itinerary
                 {
+                    TripName = "My Europe Trip",
                     Id = 1,
                     TravelDateStart = DateTime.Today,
                     TravelDateFinish = DateTime.Today,
@@ -77,16 +77,10 @@ namespace BlueSkyTravel
                     IsApproved = false,
                     Location = "Paris, France",
                     Name = "Disneyland",
+                    Vote = 0,
                     ItineraryId = 1
                 });
 
-            modelBuilder.Entity<Vote>().HasData(
-              new Vote
-              {
-                  Id = 1,
-                  VoteChoice = true,
-                  ForFunId = 1
-              });
 
             modelBuilder.Entity<ApplicationUser>().HasData(
                 new ApplicationUser

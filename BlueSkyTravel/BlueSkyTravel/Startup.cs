@@ -100,7 +100,6 @@ namespace BlueSkyTravel
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
             services.AddScoped<IRepository<Flight>, FlightRepository>();
-            services.AddScoped<IRepository<Vote>, VoteRepository>();
         }
 
 
