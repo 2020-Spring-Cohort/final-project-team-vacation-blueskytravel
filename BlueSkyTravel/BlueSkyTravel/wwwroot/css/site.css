@@ -225,3 +225,7 @@ a.btn-Google, button.btn.btn-Google {
     padding: 1rem;
 
 }
+
+div span.text-danger::before {
+    content: "\A";
+}
