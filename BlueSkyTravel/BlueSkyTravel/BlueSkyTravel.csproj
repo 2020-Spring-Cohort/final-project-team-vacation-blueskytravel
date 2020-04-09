@@ -36,5 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Connected Services\" />
+    <Folder Include="wwwroot\img\headshots\" />
   </ItemGroup>
 </Project>
