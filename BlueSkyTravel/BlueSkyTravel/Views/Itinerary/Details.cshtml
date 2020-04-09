@@ -9,7 +9,7 @@
 <h1>Your Upcoming Trip</h1>
 
 <div class="itinerary-items">
-
+    
     @{
         var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
         var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
@@ -189,11 +189,17 @@
     <dd class="col-sm-10">
         @Html.DisplayFor(modelItem => item.Location)
     </dd>
+    <dt class="col-sm-2">
+        Votes:
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Vote)
+    </dd>
     @*<p>
-        @Html.DisplayFor(modelItem => item.Itinerary.Id)
-    </p>*@
+            @Html.DisplayFor(modelItem => item.Itinerary.Id)
+        </p>*@
 </dl>
-
+        <button id="addVote">Add Vote</button>
         <div>
             <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
