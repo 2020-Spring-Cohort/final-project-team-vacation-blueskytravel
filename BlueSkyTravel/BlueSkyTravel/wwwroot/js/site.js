@@ -2,17 +2,15 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function sanityCheck() {
-    alert('hello!')
+const button = document.querySelectorAll("#addVote").forEach(button => {
+    button.onclick = function () {
+        console.log("hello!")
+        addVote()
+    }
+})
+
+function addVote() {
+    let vote = document.querySelector("#voteCount").value
+    vote++
+    console.log(vote)
 }
-
-
-<script runat="server">
-
-    protected void Button_Click(object sender, EventArgs e)
-{
-        Button btn = (Button)sender;
-btn.Text = (Int32.Parse(btn.Text) + 1).ToString();
-}
-</script>
-
