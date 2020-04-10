@@ -205,8 +205,8 @@
             @Html.DisplayFor(modelItem => item.Itinerary.Id)
         </p>
 </dl>
-        <div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>
-        <div>
+        @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>
+        <div>*@
             <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
             <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>

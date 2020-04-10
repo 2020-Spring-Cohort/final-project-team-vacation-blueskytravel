@@ -90,8 +90,6 @@ namespace BlueSkyTravel.Controllers
             return RedirectToAction("Details", "Itinerary", new { id = tempId });
         }
 
-
-       
         public IActionResult CountLikes(int funId, int itinId)
         {
             ForFun model = funRepo.GetById(funId);
