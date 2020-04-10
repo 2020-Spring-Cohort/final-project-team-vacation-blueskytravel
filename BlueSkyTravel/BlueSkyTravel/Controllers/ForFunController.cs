@@ -99,5 +99,13 @@ namespace BlueSkyTravel.Controllers
             funRepo.Update(model);
             return RedirectToAction("Details", "Itinerary", new { id = itinId });
         }
+
+        public IActionResult CountDislikes(int funId, int itinId)
+        {
+            ForFun model = funRepo.GetById(funId);
+            model.Dislike++;
+            funRepo.Update(model);
+            return RedirectToAction("Details", "Itinerary", new { id = itinId });
+        }
     }
 }

@@ -212,6 +212,8 @@
             <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             <br />
             @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
+            <br />
+            @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
         </div>
     }
 
