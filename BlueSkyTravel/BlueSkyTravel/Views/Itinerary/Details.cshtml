@@ -190,16 +190,22 @@
         @Html.DisplayFor(modelItem => item.Location)
     </dd>
     <dt class="col-sm-2">
-        Votes:
+        Likes:
+    </dt>
+    <dd id="likes" class="col-sm-10">
+        @Html.DisplayFor(modelItem => item.Like)
+    </dd>
+    <dt class="col-sm-2">
+        Dislikes:
     </dt>
     <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.Vote)
+        @Html.DisplayFor(modelItem => item.Dislike)
     </dd>
     @*<p>
             @Html.DisplayFor(modelItem => item.Itinerary.Id)
         </p>*@
 </dl>
-        <button id="addVote">Add Vote</button>
+        <div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>
         <div>
             <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |

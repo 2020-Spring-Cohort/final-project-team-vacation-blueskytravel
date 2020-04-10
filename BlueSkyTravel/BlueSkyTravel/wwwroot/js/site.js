@@ -6,3 +6,13 @@ function sanityCheck() {
     alert('hello!')
 }
 
+
+<script runat="server">
+
+    protected void Button_Click(object sender, EventArgs e)
+{
+        Button btn = (Button)sender;
+btn.Text = (Int32.Parse(btn.Text) + 1).ToString();
+}
+</script>
+

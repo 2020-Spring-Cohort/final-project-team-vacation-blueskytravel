@@ -12,7 +12,7 @@ namespace BlueSkyTravel.Tests
 
         public ForFunModelTests()
         {
-            myForFun = new ForFun(1, DateTime.Today, 45.00, false, "Orlando", "Didny Worl", 0, 1);
+            myForFun = new ForFun(1, DateTime.Today, 45.00, false, "Orlando", "Didny Worl", 0, 0, 1);
         }
 
         [Fact]
