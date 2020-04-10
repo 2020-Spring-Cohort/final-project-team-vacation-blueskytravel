@@ -89,5 +89,21 @@ namespace BlueSkyTravel.Controllers
             funRepo.Delete(forFun);
             return RedirectToAction("Details", "Itinerary", new { id = tempId });
         }
+
+        public IActionResult CountLikes(int funId, int itinId)
+        {
+            ForFun model = funRepo.GetById(funId);
+            model.Like++;
+            funRepo.Update(model);
+            return RedirectToAction("Details", "Itinerary", new { id = itinId });
+        }
+
+        public IActionResult CountDislikes(int funId, int itinId)
+        {
+            ForFun model = funRepo.GetById(funId);
+            model.Dislike++;
+            funRepo.Update(model);
+            return RedirectToAction("Details", "Itinerary", new { id = itinId });
+        }
     }
 }

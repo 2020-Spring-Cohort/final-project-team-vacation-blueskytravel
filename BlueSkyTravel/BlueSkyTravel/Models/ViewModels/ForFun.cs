@@ -13,7 +13,8 @@ namespace BlueSkyTravel.Models
         public bool IsApproved { get; set; }
         public string Location { get; set; }
         public string Name { get; set; }
-        public int Vote { get; set; }
+        public int Like { get; set; }
+        public int Dislike { get; set; }
 
         public virtual Itinerary Itinerary { get; set; }
         public virtual int ItineraryId { get; set; }
@@ -23,7 +24,7 @@ namespace BlueSkyTravel.Models
 
         }
 
-        public ForFun(int id, DateTime eventTime, double fare, bool isApproved, string location, string name, int vote, int itineraryId)
+        public ForFun(int id, DateTime eventTime, double fare, bool isApproved, string location, string name, int like, int dislike, int itineraryId)
         {
             Id = id;
             EventTime = eventTime;
@@ -31,8 +32,9 @@ namespace BlueSkyTravel.Models
             IsApproved = false;
             Location = location;
             Name = name;
+            Like = like;
+            Dislike = dislike;
             ItineraryId = itineraryId;
-            Vote = vote;
             
         }
 

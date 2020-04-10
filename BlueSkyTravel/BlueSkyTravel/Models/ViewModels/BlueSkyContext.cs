@@ -77,7 +77,8 @@ namespace BlueSkyTravel
                     IsApproved = false,
                     Location = "Paris, France",
                     Name = "Disneyland",
-                    Vote = 0,
+                    Like = 0,
+                    Dislike = 0,
                     ItineraryId = 1
                 });
 

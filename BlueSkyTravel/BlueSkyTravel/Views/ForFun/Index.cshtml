@@ -30,9 +30,14 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Itinerary)
+                @Html.DisplayNameFor(model => model.Itinerary.Id)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Like)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.Dislike)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -57,10 +62,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Itinerary.Id)
                 </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Like)
+                </td>
+                  <td>
+                    @Html.DisplayFor(modelItem => item.Dislike)
+                </td>
                 <td>
                     <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <br/>
+                    @Html.ActionLink("CountLikes", "CountLikes", new { funid = item.Id, itinId = item.Itinerary.Id })
                 </td>
             </tr>
         }
