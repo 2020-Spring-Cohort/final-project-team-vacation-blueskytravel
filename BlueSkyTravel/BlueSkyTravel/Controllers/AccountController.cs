@@ -121,6 +121,13 @@ namespace BlueSkyTravel.Controllers
             };
             return View(model);
         }
+        
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Logout()
@@ -207,5 +214,7 @@ namespace BlueSkyTravel.Controllers
         {
             return View();
         }
+
+
     }
 }
