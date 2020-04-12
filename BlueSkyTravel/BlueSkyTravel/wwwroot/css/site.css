@@ -193,7 +193,7 @@ a.btn-Google, button.btn.btn-Google {
     }
 
 .card {
-    max-width: 400px;
+    max-width: 425px;
     border-radius: .8em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -286,15 +286,13 @@ img {
     max-width: 100%;
 }
 
-h1,
-p {
-    margin: 0 0 1em 0;
-}
+
 
 .media {
-    margin-bottom: 2em;
+    margin-bottom: 4rem;
     border: 2px solid #444;
     padding: 10px;
+
     background-color: #F8F9FA;
     border-radius: .5rem;
     -webkit-box-shadow: 2px 1px 14px 5px rgba(211,211,211,1);
@@ -302,13 +300,27 @@ p {
     box-shadow: 2px 1px 14px 5px rgba(211,211,211,1);
 }
 
-.media h2{
-    padding-bottom: .5em;
-}
-
-    .media > .title {
-        grid-area: title;
+    .media:last-child {
+        margin-bottom: 8em;
     }
+
+
+
+    .media h2 {
+        padding-bottom: .5em;
+    }
+
+    .media > .content h3, .media > .content h4 {
+        font-size: 1.5em;
+    }
+
+        .media > .content h4{
+            padding-top: .5em;
+        }
+
+        .media > .title {
+            grid-area: title;
+        }
 
     .media > .img {
         grid-area: img;
@@ -411,4 +423,9 @@ p {
                 margin-top: 1em;
             }
     }
+}
+
+h1.itinerary
+{
+    padding-top: 2rem;
 }

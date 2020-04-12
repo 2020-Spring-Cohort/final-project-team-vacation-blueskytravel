@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <h1>Your Itineraries</h1>
+        <h1 class=itinerary>Your Itineraries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -30,15 +30,27 @@
                 <img src="http://placehold.it/250x250" alt="Placeholder">
             </div>
             <h2 class="title">@Html.DisplayFor(modelItem => item.TripName)</h2>
-            <h3>Destination: @Html.DisplayFor(modelItem => item.Destination)</h3>
             <div class="content">
+             <h3>Destination: @Html.DisplayFor(modelItem => item.Destination)</h3>
              <h4>Budget: $@Html.DisplayFor(modelItem => item.Budget)  </h4>
             </div>
             <div class="bottom">
-                @Html.DisplayFor(modelItem => dateStart) -  @Html.DisplayFor(modelItem => dateEnd) ||   
-                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                Trip Dates: @Html.DisplayFor(modelItem => dateStart) -  @Html.DisplayFor(modelItem => dateEnd) ||   
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Itinerary Actions</a>
+                            <div class="dropdown-menu">
+                           
+                              <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                              <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                            </div>
+                          </li>
+                        </ul>
             </div>
         </div>
         }
