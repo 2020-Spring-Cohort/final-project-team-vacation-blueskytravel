@@ -47,7 +47,7 @@
                     <!-- form-group end.// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i>
+                            <span class="input-group-text"> <i class="fas fa-map-marked-alt"></i></span>
                         </div>
                         <input  asp-for="Destination" class="form-control" placeholder="Destination" type="text">
                         <br />
@@ -75,11 +75,6 @@
             </article>
         </div> 
     
-
-
-
-
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
