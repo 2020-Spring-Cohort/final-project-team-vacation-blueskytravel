@@ -290,14 +290,10 @@ img {
 
 .media {
     margin-bottom: 4rem;
-    border: 2px solid #444;
     padding: 10px;
-
     background-color: #F8F9FA;
-    border-radius: .5rem;
-    -webkit-box-shadow: 2px 1px 14px 5px rgba(211,211,211,1);
-    -moz-box-shadow: 2px 1px 14px 5px rgba(211,211,211,1);
-    box-shadow: 2px 1px 14px 5px rgba(211,211,211,1);
+    border-radius: .8em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
     .media:last-child {
