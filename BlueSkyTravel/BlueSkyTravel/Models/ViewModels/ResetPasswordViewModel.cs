@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlueSkyTravel.Models.ViewModels
 {
-    public class PasswordResetViewModel
+    public class ResetPasswordViewModel
     {
         [Required]
         [EmailAddress]
