@@ -439,7 +439,11 @@ h1.itinerary
     padding-top: .8em;
 }
 
+.input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control, .input-group > .form-control-plaintext
+{
+    min-width: 80%;
 
+}
 
 /* Media Queries */
 
