@@ -3,55 +3,89 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>Flight</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+
+<div class="card bg-light mx-auto">
+    <article class="card-body mx-auto">
+        <h4 class="card-title mt-3 text-center">Add a Flight!</h4>
+        <p class="text-center">You'll never nome alone!</p>
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AirlineName" class="control-label">Airline Name</label>
-                <input asp-for="AirlineName" class="form-control" />
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-plane"></i></span>
+                </div>
+                <input asp-for="AirlineName" class="form-control" placeholder="Airline Name" type="text">
                 <span asp-validation-for="AirlineName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FlightNumber" class="control-label">Flight Number</label>
-                <input asp-for="FlightNumber" class="form-control" />
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-sort-numeric-up"></i></span>
+                </div>
+                <input asp-for="FlightNumber" class="form-control" placeholder="Flight Number" type="text">
                 <span asp-validation-for="FlightNumber" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ArrivalDate" class="control-label">Arrival Date</label>
-                <input asp-for="ArrivalDate" class="form-control" />
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                </div>
+                <input asp-for="ArrivalDate" class="form-control" placeholder="Arrival" type="datetime-local">
+                <br />
                 <span asp-validation-for="ArrivalDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DepartureDate" class="control-label">Departure Date</label>
-                <input asp-for="DepartureDate" class="form-control" />
+
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                </div>
+                <input asp-for="DepartureDate" class="form-control" placeholder="Departure" type="datetime-local">
+                <br />
                 <span asp-validation-for="DepartureDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Fare" class="control-label">Flight Fare</label>
-                <input asp-for="Fare" class="form-control" />
+
+
+            <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <input asp-for="Fare" class="form-control" placeholder="Airfare" type="text">
+                <br />
                 <span asp-validation-for="Fare" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input asp-for="ItineraryId" type="hidden" value="@ViewBag.ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
             </div>
+
+            <!-- form-group// -->
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <button type="submit" value="Create" class="btn btn-primary btn-block"> Create Flight  </button>
             </div>
+
+
+
+            <!-- form-group// -->
+            <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@ViewBag.ItineraryId">Back to Itinerary List</a>
         </form>
-    </div>
+    </article>
 </div>
 
-<div>
-    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@ViewBag.ItineraryId">Back to List</a>
-</div>
+
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

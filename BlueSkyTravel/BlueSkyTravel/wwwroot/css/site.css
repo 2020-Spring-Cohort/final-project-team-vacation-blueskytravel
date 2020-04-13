@@ -694,11 +694,11 @@ body {
 }
 
 #timeline .demo-card--step1 {
-    background-color: #46b8e9;
+    background-color: #7698c0;
 }
 
     #timeline .demo-card--step1 .head::after {
-        border-color: #46b8e9;
+        border-color: #7698c0;
     }
 
 #timeline .demo-card--step2 {
@@ -731,4 +731,9 @@ body {
 
     #timeline .demo-card--step5 .head::after {
         border-color: #46b8e9;
+    }
+
+
+    #about, #philanthropy, #contact{
+        padding-top: 6rem;
     }

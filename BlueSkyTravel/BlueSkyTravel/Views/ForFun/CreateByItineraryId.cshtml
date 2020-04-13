@@ -4,55 +4,70 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>ForFun</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="EventTime" class="control-label">Event Time</label>
-                <input asp-for="EventTime" class="form-control" />
-                <span asp-validation-for="EventTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fare" class="control-label"></label>
-                <input asp-for="Fare" class="form-control" />
-                <span asp-validation-for="Fare" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsApproved" /> @Html.DisplayNameFor(model => model.IsApproved)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-for="ItineraryId" type="hidden" value="@ViewBag.ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <div class="card bg-light mx-auto">
+        <article class="card-body mx-auto">
+            <h4 class="card-title mt-3 text-center">Create an Activity!</h4>
+            <p class="text-center">You'll never nome alone!</p>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<div>
-    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@ViewBag.ItineraryId">Back to List</a>
-</div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-umbrella-beach"></i></span>
+                    </div>
+                    <input asp-for="Name" class="form-control" placeholder="Activity" type="text">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                    </div>
+                    <input asp-for="EventTime" class="form-control" placeholder="Date and Time" type="datetime-local">
+                    <br />
+                    <span asp-validation-for="EventTime" class="text-danger"></span>
+                </div>
+                <!-- form-group end.// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-dollar-sign"></i></span>
+                    </div>
+                    <input asp-for="Fare" class="form-control" placeholder="Activity Fare" type="text">
+                    <br />
+                    <span asp-validation-for="Fare" class="text-danger"></span>
+                </div>
+
+                <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-map-pin"></i></span>
+                    </div>
+                    <input asp-for="Location" class="form-control" placeholder="Location" type="text">
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="form-group">
+                    <input asp-for="ItineraryId" type="hidden" value="@ViewBag.ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
+                </div>
+
+
+                <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" value="Create" class="btn btn-primary btn-block">Create Activity</button>
+                </div>
+
+                <!-- form-group// -->
+                <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@ViewBag.ItineraryId">Back to Itinerary List</a>
+            </form>
+        </article>
+    </div> 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
