@@ -588,31 +588,31 @@ body {
         margin-bottom: 45px;
     }
 
-        #timeline .demo-card:nth-child(odd) {
+        #timeline .demo-card .odd {
             margin-right: 45px;
         }
 
-            #timeline .demo-card:nth-child(odd) .head::after {
+            #timeline .demo-card .odd .head::after {
                 border-left-width: 15px;
                 border-left-style: solid;
                 left: 100%;
             }
 
-            #timeline .demo-card:nth-child(odd) .head::before {
+            #timeline .demo-card .odd .head::before {
                 left: 491.5px;
             }
 
-        #timeline .demo-card:nth-child(even) {
+        #timeline .demo-card .even {
             margin-left: 45px;
         }
 
-            #timeline .demo-card:nth-child(even) .head::after {
+            #timeline .demo-card .even .head::after {
                 border-right-width: 15px;
                 border-right-style: solid;
                 right: 100%;
             }
 
-            #timeline .demo-card:nth-child(even) .head::before {
+            #timeline .demo-card .even .head::before {
                 right: 489.5px;
             }
 
