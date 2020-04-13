@@ -208,6 +208,8 @@ namespace BlueSkyTravel.Migrations
                     IsApproved = table.Column<bool>(nullable: false),
                     Location = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
+                    Like = table.Column<int>(nullable: false),
+                    Dislike = table.Column<int>(nullable: false),
                     ItineraryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -245,55 +247,30 @@ namespace BlueSkyTravel.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Votes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    VoteChoice = table.Column<bool>(nullable: false),
-                    ForFunId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Votes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Votes_ForFuns_ForFunId",
-                        column: x => x.ForFunId,
-                        principalTable: "ForFuns",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "City", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "State", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "14f7f6c9-d19e-41ae-9d30-df931d60e9a3", 0, "Akron", "87460bb9-2c48-431c-b873-3e338d5a4aab", null, false, "Tom", "Shaw", false, null, null, null, null, null, false, "8406828e-ec5f-4cce-bee3-429632b82a70", "Ohio", false, null });
+                values: new object[] { "6755aa39-692c-4fa0-b3cb-3b44703c7144", 0, "Akron", "db1e9a34-6023-4748-a0b6-7633631c27a9", null, false, "Tom", "Shaw", false, null, null, null, null, null, false, "39b1cd66-741f-47fe-97a0-0b44486f5a08", "Ohio", false, null });
 
             migrationBuilder.InsertData(
                 table: "Itinerary",
                 columns: new[] { "Id", "Budget", "Destination", "TravelDateFinish", "TravelDateStart", "TripName" },
-                values: new object[] { 1, 1500.0, "London, UK", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), null });
+                values: new object[] { 1, 1500.0, "London, UK", new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), "My Europe Trip" });
 
             migrationBuilder.InsertData(
                 table: "Flights",
                 columns: new[] { "Id", "AirlineName", "ArrivalDate", "DepartureDate", "Fare", "FlightNumber", "ItineraryId" },
-                values: new object[] { 1, "WCCI AIR", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 426.0, "WCCI-2020", 1 });
+                values: new object[] { 1, "WCCI AIR", new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 426.0, "WCCI-2020", 1 });
 
             migrationBuilder.InsertData(
                 table: "ForFuns",
-                columns: new[] { "Id", "EventTime", "Fare", "IsApproved", "ItineraryId", "Location", "Name" },
-                values: new object[] { 1, new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 100.0, false, 1, "Paris, France", "Disneyland" });
+                columns: new[] { "Id", "Dislike", "EventTime", "Fare", "IsApproved", "ItineraryId", "Like", "Location", "Name" },
+                values: new object[] { 1, 0, new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 100.0, false, 1, 0, "Paris, France", "Disneyland" });
 
             migrationBuilder.InsertData(
                 table: "Hotels",
                 columns: new[] { "Id", "Address", "CheckIn", "CheckOut", "ItineraryId", "Name", "NightlyRate" },
-                values: new object[] { 1, "221B Baker Street", new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local), 1, "Holiday Inn", 150.0 });
-
-            migrationBuilder.InsertData(
-                table: "Votes",
-                columns: new[] { "Id", "ForFunId", "VoteChoice" },
-                values: new object[] { 1, 1, true });
+                values: new object[] { 1, "221B Baker Street", new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2020, 4, 12, 0, 0, 0, 0, DateTimeKind.Local), 1, "Holiday Inn", 150.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -348,11 +325,6 @@ namespace BlueSkyTravel.Migrations
                 name: "IX_Hotels_ItineraryId",
                 table: "Hotels",
                 column: "ItineraryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Votes_ForFunId",
-                table: "Votes",
-                column: "ForFunId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -376,19 +348,16 @@ namespace BlueSkyTravel.Migrations
                 name: "Flights");
 
             migrationBuilder.DropTable(
-                name: "Hotels");
+                name: "ForFuns");
 
             migrationBuilder.DropTable(
-                name: "Votes");
+                name: "Hotels");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "ForFuns");
 
             migrationBuilder.DropTable(
                 name: "Itinerary");
