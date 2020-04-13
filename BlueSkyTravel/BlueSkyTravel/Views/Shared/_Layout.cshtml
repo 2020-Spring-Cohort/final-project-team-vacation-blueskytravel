@@ -11,9 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-
-
+        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="navlogo" src="~/img/BlueSkyTravel2.svg"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
@@ -22,14 +20,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <partial name="_LoginPartial" />
-
                     <ul class="navbar-nav ml-auto">
                         <partial name="_Nav" />
-
                         @RenderSection("additionalNav", required: false)
                     </ul>
-
-
                 </div>
             </div>
         </nav>

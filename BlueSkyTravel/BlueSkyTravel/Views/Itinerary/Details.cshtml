@@ -17,13 +17,13 @@
         @Model.TripName
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Update Itinerary</a>
-        <a class="dropdown-item" href="#">Add Flight</a>
-         <a class="dropdown-item" href="#">Add Hotel</a>
-           <a class="dropdown-item" href="#">Add Activity</a>
+        <a class="dropdown-item" asp-action="Update" asp-route-id="@Model.Id">Update Itinerary</a>
+        <a class="dropdown-item" asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add Flight</a>
+        <a class="dropdown-item" asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add Hotel</a>
+        <a class="dropdown-item" asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add Activity</a>
      
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Delete Itinerary</a>
+        <a class="dropdown-item" asp-action="Delete" asp-route-id="@Model.Id">Delete Itinerary</a>
     </div>
 </li>
 
