@@ -98,16 +98,16 @@ namespace BlueSkyTravel.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "59c780c7-fc53-4e51-989d-9186802436e6",
+                            Id = "824c2bb8-3dda-42b8-96b3-3e380357935e",
                             AccessFailedCount = 0,
                             City = "Akron",
-                            ConcurrencyStamp = "62089812-258c-4ba3-b659-7b5436fafe18",
+                            ConcurrencyStamp = "0a439e53-161c-4ec3-bc5f-8f1d8fd03bfe",
                             EmailConfirmed = false,
                             FirstName = "Tom",
                             LastName = "Shaw",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "99ba5d79-0728-4178-8081-eab7ff716041",
+                            SecurityStamp = "7dce0ad6-3eab-44a5-88e9-722223a1f6b2",
                             State = "Ohio",
                             TwoFactorEnabled = false
                         });
@@ -149,8 +149,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             AirlineName = "WCCI AIR",
-                            ArrivalDate = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            DepartureDate = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            ArrivalDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            DepartureDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 426.0,
                             FlightNumber = "WCCI-2020",
                             ItineraryId = 1
@@ -199,7 +199,7 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             Dislike = 0,
-                            EventTime = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            EventTime = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 100.0,
                             IsApproved = false,
                             ItineraryId = 1,
@@ -245,8 +245,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             Address = "221B Baker Street",
-                            CheckIn = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            CheckOut = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckIn = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckOut = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             ItineraryId = 1,
                             Name = "Holiday Inn",
                             NightlyRate = 150.0
@@ -285,8 +285,8 @@ namespace BlueSkyTravel.Migrations
                             Id = 1,
                             Budget = 1500.0,
                             Destination = "London, UK",
-                            TravelDateFinish = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
-                            TravelDateStart = new DateTime(2020, 4, 10, 0, 0, 0, 0, DateTimeKind.Local),
+                            TravelDateFinish = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            TravelDateStart = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             TripName = "My Europe Trip"
                         });
                 });
