@@ -48,7 +48,8 @@
                         <h1>Itinerary: @Model.TripName</h1>
                         <h2>Destination: @Html.DisplayFor(model => model.Destination)</h2>
                         <h3>Travel Dates: @Html.DisplayFor(model => dateStartValue) - @Html.DisplayFor(model => dateEndValue)</h3>
-                        <p>$@Html.DisplayFor(model => model.Budget)</p>
+                        <p id="budget" value="@Model.Budget">$@Html.DisplayFor(model => model.Budget)</p>
+                        <p id="balance">@Model.Budget</p>
                     </div>
                 </div>
             </div>
@@ -117,6 +118,7 @@
                     @Html.DisplayFor(modelItem => item.Itinerary.Id)
                 </p>*@
         </dl>
+        <input id="flightFare" type="hidden" value="@item.Fare" />
         <div>
             <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -175,6 +177,8 @@
                     @Html.DisplayFor(modelItem => item.Itinerary.Id)
                 </p>*@
         </dl>
+        <input id="hotelRate" type="hidden" value="@item.NightlyRate" />
+
         <div>
             <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -287,6 +291,8 @@
                 </p>*@
         </dl>
         @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>*@
+        <input id="activityFare" type="hidden" value="@item.Fare" />
+
         <div>
             <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
