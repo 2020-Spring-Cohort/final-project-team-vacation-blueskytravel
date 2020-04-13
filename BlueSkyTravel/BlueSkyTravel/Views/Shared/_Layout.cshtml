@@ -7,21 +7,13 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="https://kit.fontawesome.com/971f9e8740.js" crossorigin="anonymous"></script>
-
-
     </environment>
 </head>
 <body>
-    @*<div id="fb-root"></div>*@
-    @*<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=225804278486064&autoLogAppEvents=1"></script>*@
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+
+
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="navlogo" src="~/img/BlueSkyTravel2.svg"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarSupportedContent"
@@ -30,24 +22,26 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <partial name="_LoginPartial" />
+
                     <ul class="navbar-nav ml-auto">
                         <partial name="_Nav" />
+
+                        @RenderSection("additionalNav", required: false)
                     </ul>
 
 
                 </div>
             </div>
         </nav>
-    </header>
 
+    </header>
 
     @RenderSection("slider", required: false)
     @RenderSection("jumbotron", required: false)
     @RenderSection("services", required: false)
 
+
     @RenderBody()
-
-
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -55,8 +49,13 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script src="https://kit.fontawesome.com/971f9e8740.js" crossorigin="anonymous"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

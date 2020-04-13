@@ -4,218 +4,330 @@
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h1>Your Upcoming Trip</h1>
-
-<div class="itinerary-items">
-    
-    @{
         var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
         var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
+}
 
 
-        <h4>@Model.TripName</h4>
-        <hr />
-        <dl class="row">
+@section additionalNav{
 
-            <dt class="col-sm-2">
-                Trip Begins:
-                @*@Html.DisplayNameFor(model => model.TravelDateStart)*@
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => dateStartValue)
-            </dd>
-            <dt class="col-sm-2">
-                Trip Ends:
-                @*@Html.DisplayNameFor(model => model.TravelDateFinish)*@
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => dateEndValue)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Destination):
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Destination)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Budget):
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(model => model.Budget)
-            </dd>
-        </dl>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @Model.TripName
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Update Itinerary</a>
+        <a class="dropdown-item" href="#">Add Flight</a>
+         <a class="dropdown-item" href="#">Add Hotel</a>
+           <a class="dropdown-item" href="#">Add Activity</a>
+     
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Delete Itinerary</a>
+    </div>
+</li>
+
     }
 
-    <a asp-controller="Itinerary" asp-action="Update" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+
+@section slider{
+
+
+
+<div id="itinDetails" class="carousel slide pointer-event" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="bd-placeholder-img" src="/img/BlueLagoon.jpg" alt="BlueLagoon">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Itinerary: @Model.TripName</h1>
+                    <h2>Destination: @Html.DisplayFor(model => model.Destination)</h2>
+                    <h3>Travel Dates: @Html.DisplayFor(model => dateStartValue) - @Html.DisplayFor(model => dateEndValue)</h3>
+                    <p>$@Html.DisplayFor(model => model.Budget)</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
+
+}
+
+
+@section jumbotron{
+<section class="jumbotron text-center">
+    <div class="container">
+        <h2>Flight Plan: @Model.TripName</h2>
+    </div>
+</section>
+}
+
 
 <div class="itinerary-items" id="flights">
     <h4>Flight Plan</h4>
     <hr />
     @foreach (var item in Model.Flights)
     {
-        <dl class="row">
-            <dt class="col-sm-2">
-                Airline:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.AirlineName)
-            </dd>
-            <dt class="col-sm-2">
-                Flight Number:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.FlightNumber)
-            </dd>
-            <dt class="col-sm-2">
-                Arrival:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.ArrivalDate)
-            </dd>
-            <dt class="col-sm-2">
-                Departure:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.DepartureDate)
-            </dd>
-            <dt class="col-sm-2">
-                Airfare:
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.Fare)
-            </dd>
-            @*<p>
-                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
-                </p>*@
-        </dl>
-        <div>
-            <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="Flight" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Airline:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.AirlineName)
+        </dd>
+        <dt class="col-sm-2">
+            Flight Number:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.FlightNumber)
+        </dd>
+        <dt class="col-sm-2">
+            Arrival:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+        </dd>
+        <dt class="col-sm-2">
+            Departure:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.DepartureDate)
+        </dd>
+        <dt class="col-sm-2">
+            Airfare:
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(modelItem => item.Fare)
+        </dd>
+        @*
+        <p>
+            @Html.DisplayFor(modelItem => item.Itinerary.Id)
+        </p>*@
+    </dl>
+    <div>
+        <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+        <a asp-controller="Flight" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
     }
     <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Flight</a>
 </div>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h2>Resort Reservation: @Model.TripName</h2>
+    </div>
+</section>
 
 <div class="itinerary-items" id="hotels">
     <h4>Resort Reservations</h4>
     <hr />
     @foreach (var item in Model.Hotels)
     {
-        var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
-        var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
+    var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
+    var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
 
-        <dl class="row">
-            <dt class="col-sm-2">
-                Hotel:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Name)
-            </dd>
-            <dt class="col-sm-2">
-                Address:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Address)
-            </dd>
-            <dt class="col-sm-2">
-                Check-In:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => dateStartHotel)
-            </dd>
-            <dt class="col-sm-2">
-                Check-Out:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => dateEndHotel)
-            </dd>
-            <dt class="col-sm-2">
-                Rate:
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.NightlyRate)/Night
-            </dd>
-            @*<p>
-                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
-                </p>*@
-        </dl>
-        <div>
-            <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Hotel:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Address:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Address)
+        </dd>
+        <dt class="col-sm-2">
+            Check-In:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => dateStartHotel)
+        </dd>
+        <dt class="col-sm-2">
+            Check-Out:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => dateEndHotel)
+        </dd>
+        <dt class="col-sm-2">
+            Rate:
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(modelItem => item.NightlyRate)/Night
+        </dd>
+        @*
+        <p>
+            @Html.DisplayFor(modelItem => item.Itinerary.Id)
+        </p>*@
+    </dl>
+    <div>
+        <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+        <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
     }
     <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Hotel</a>
 </div>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h2>Activities: @Model.TripName</h2>
+    </div>
+</section>
 
 <div class="itinerary-items" id="activities">
     <h4>Plans</h4>
     <hr />
     @foreach (var item in Model.ForFuns)
     {
-<dl class="row">
-    <dt class="col-sm-2">
-        Activity:
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.Name)
-    </dd>
-    <dt class="col-sm-2">
-        Date and Time:
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.EventTime)
-    </dd>
-    <dt class="col-sm-2">
-        Cost:
-    </dt>
-    <dd class="col-sm-10">
-        $@Html.DisplayFor(modelItem => item.Fare) per Person
-    </dd>
-    <dt class="col-sm-2">
-        Approval:
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.IsApproved)
-    </dd>
-    <dt class="col-sm-2">
-        Location:
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.Location)
-    </dd>
-    <dt class="col-sm-2">
-        Likes:
-    </dt>
-    <dd id="likes" class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.Like)
-    </dd>
-    <dt class="col-sm-2">
-        Dislikes:
-    </dt>
-    <dd class="col-sm-10">
-        @Html.DisplayFor(modelItem => item.Dislike)
-    </dd>
-   @*<p>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Activity:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Date and Time:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.EventTime)
+        </dd>
+        <dt class="col-sm-2">
+            Cost:
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(modelItem => item.Fare) per Person
+        </dd>
+        <dt class="col-sm-2">
+            Approval:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </dd>
+        <dt class="col-sm-2">
+            Location:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Location)
+        </dd>
+        <dt class="col-sm-2">
+            Likes:
+        </dt>
+        <dd id="likes" class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Like)
+        </dd>
+        <dt class="col-sm-2">
+            Dislikes:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Dislike)
+        </dd>
+        @*
+        <p>
             @Html.DisplayFor(modelItem => item.Itinerary.Id)
         </p>*@
-</dl>
-        @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>*@
-        <div>
-            <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            <br />
-            @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
-            <br />
-            @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
-        </div>
+    </dl>
+    @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>*@
+    <div>
+        <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+        <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        <br />
+        @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
+        <br />
+        @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
+    </div>
     }
 
     <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add An Activity</a>
 </div>
+
+
+
+<section id=timeline>
+    <h1>A Flexbox Timeline</h1>
+    <p class="leader">All cards must be the same height and width for space calculations on large screens.</p>
+    <div class="demo-card-wrapper">
+        <div class="demo-card demo-card--step1">
+            <div class="head">
+                <div class="number-box">
+                    <span>01</span>
+                </div>
+                <h2><span class="small">Subtitle</span> Technology</h2>
+            </div>
+            <div class="body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+                <img src="http://placehold.it/1000x500" alt="Graphic">
+            </div>
+        </div>
+
+        <div class="demo-card demo-card--step2">
+            <div class="head">
+                <div class="number-box">
+                    <span>02</span>
+                </div>
+                <h2><span class="small">Subtitle</span> Confidence</h2>
+            </div>
+            <div class="body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+                <img src="http://placehold.it/1000x500" alt="Graphic">
+            </div>
+        </div>
+
+        <div class="demo-card demo-card--step3">
+            <div class="head">
+                <div class="number-box">
+                    <span>03</span>
+                </div>
+                <h2><span class="small">Subtitle</span> Adaptation</h2>
+            </div>
+            <div class="body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+                <img src="http://placehold.it/1000x500" alt="Graphic">
+            </div>
+        </div>
+
+        <div class="demo-card demo-card--step4">
+            <div class="head">
+                <div class="number-box">
+                    <span>04</span>
+                </div>
+                <h2><span class="small">Subtitle</span> Consistency</h2>
+            </div>
+            <div class="body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+                <img src="http://placehold.it/1000x500" alt="Graphic">
+            </div>
+        </div>
+
+        <div class="demo-card demo-card--step5">
+            <div class="head">
+                <div class="number-box">
+                    <span>05</span>
+                </div>
+                <h2><span class="small">Subtitle</span> Conversion</h2>
+            </div>
+            <div class="body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+                <img src="http://placehold.it/1000x500" alt="Graphic">
+            </div>
+        </div>
+
+    </div>
+</section>
