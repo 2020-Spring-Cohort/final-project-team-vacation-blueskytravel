@@ -7,6 +7,7 @@
 
         var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
         var dateEndValue = Model.TravelDateFinish.ToString("MM/dd/yyyy");
+        var counter = 0;
 }
 
 
@@ -118,7 +119,6 @@
     </dl>
     <div>
         <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-        <a asp-controller="Flight" asp-action="Details" asp-route-id="@item.Id">Details</a> |
         <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
     </div>
     }
@@ -177,7 +177,6 @@
     </dl>
     <div>
         <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-        <a asp-controller="Hotel" asp-action="Details" asp-route-id="@item.Id">Details</a> |
         <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
     </div>
     }
@@ -195,6 +194,11 @@
     <hr />
     @foreach (var item in Model.ForFuns)
     {
+
+    counter++;
+
+    @counter
+
     <dl class="row">
         <dt class="col-sm-2">
             Activity:
@@ -246,7 +250,6 @@
     @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>*@
     <div>
         <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-        <a asp-controller="ForFun" asp-action="Details" asp-route-id="@item.Id">Details</a> |
         <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
         <br />
         @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
@@ -331,3 +334,12 @@
 
     </div>
 </section>
+
+
+  <div id="slidebox">
+        <a class="close"></a>
+        <h2 class="everything">Click to Call Us <a href="callto://+15555555555"> + 1 555-556-5555</a></h2>
+        <h2 class="mobile">Tap to Call Us <a href="tel:+15555555555"> + 1 555-556-5555</a></h2>
+        <p>or click Get Started to and plan your Trip Today!</p>
+        <a asp-action="Register" asp-controller="Account" class="nav-link text-dark" >Get Started »</a>
+    </div>

@@ -14,3 +14,5 @@ function addVote() {
     vote++
     console.log(vote)
 }
+
+

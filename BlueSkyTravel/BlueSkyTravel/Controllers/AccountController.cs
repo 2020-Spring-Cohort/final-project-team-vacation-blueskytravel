@@ -141,6 +141,7 @@ namespace BlueSkyTravel.Controllers
                 if (user != null)
                 {
                     var token = await userManager.GeneratePasswordResetTokenAsync(user);
+                                /*model.Token.Replace(" ", "+"); */
 
                     var passwordResetLink = Url.Action("ResetPassword", "Account",
                         new { email = model.Email, token = token }, Request.Scheme);
