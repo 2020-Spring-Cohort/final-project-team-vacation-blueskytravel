@@ -40,8 +40,8 @@
                 </div>
                 <div class="stats flex-row-reverse">
                       <ul class="nav nav-pills">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Itinerary Actions</a>
+                    <li class="nav-item dropup">
+                        <a class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
                             <div class="dropdown-menu">
                            
                               <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
@@ -59,7 +59,7 @@
         <div class="general">
             <h1>@item.TripName</h1>
             <h2>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</h2>
-            <span class="more">Mouse over the card for more info</span>
+            <span class="more">Mouse Over for Details</span>
         </div>
     </div>
     }

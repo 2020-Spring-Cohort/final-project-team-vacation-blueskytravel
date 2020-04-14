@@ -53,13 +53,13 @@ a.navbar-brand {
 }
 
 .carousel-caption h1{
-    font-size: 500%;
+    font-size: 5vw;
     text-transform: uppercase;
     text-shadow: 1px 1px 15px #405D9D;
 }
 
     .carousel-caption h3 {
-        font-size: 200%;
+        font-size: 2vw;
         font-weight: 500;
         text-shadow: 1px 1px 1px 10px #405D9D;
     }
@@ -214,12 +214,40 @@ a.btn-Google, button.btn.btn-Google {
 
 
 .itinerary-items {
-
-    border: solid 2px black;
+    
     padding: 2em;
     margin: 3em auto;
-    
 }
+    .itinerary-items > .itinerary-headers{
+        text-align:center;
+    }
+
+#countdown-timer {
+    color: #36454f; 
+    background-color: #E8BE5F;
+    margin: 0;
+    width: 100%;
+}
+
+    #countdown-timer li {
+        display: inline-block;
+        font-size: 1em;
+        list-style-type: none;
+        padding: .5em;
+        text-transform: uppercase;
+    }
+
+        #countdown-timer li span {
+            display: block;
+            font-size: 3.5rem;
+        }
+
+        #countdown-timer ul{
+            margin: 0;
+        }
+                                     
+    
+
 
 /*---Bug Fix --*/
 .carousel-item {
