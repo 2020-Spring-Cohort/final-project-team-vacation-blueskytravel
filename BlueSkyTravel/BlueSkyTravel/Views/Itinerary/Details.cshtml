@@ -48,6 +48,7 @@
                         <h1>Itinerary: @Model.TripName</h1>
                         <h2>Destination: @Html.DisplayFor(model => model.Destination)</h2>
                         <h3>Travel Dates: @Html.DisplayFor(model => dateStartValue) - @Html.DisplayFor(model => dateEndValue)</h3>
+                        <input id="countdown-value" type="hidden" value="@Model.TravelDateStart"/>
                         <p id="budget" value="@Model.Budget">$@Html.DisplayFor(model => model.Budget)</p>
                         <p id="balance">@Model.Budget</p>
                     </div>
@@ -64,8 +65,22 @@
             </a>
         </div>
     </div>
-
 }
+
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Vacation Countdown</h1>
+            <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+            </ul>
+        </div>
+    </section>
+
+
 
 
 @section jumbotron{
