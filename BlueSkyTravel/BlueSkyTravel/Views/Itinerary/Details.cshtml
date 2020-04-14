@@ -48,7 +48,8 @@
                         <h1>Itinerary: @Model.TripName</h1>
                         <h2>Destination: @Html.DisplayFor(model => model.Destination)</h2>
                         <h3>Travel Dates: @Html.DisplayFor(model => dateStartValue) - @Html.DisplayFor(model => dateEndValue)</h3>
-                        <p>$@Html.DisplayFor(model => model.Budget)</p>
+                        <p id="budget" value="@Model.Budget">$@Html.DisplayFor(model => model.Budget)</p>
+                        <p id="balance">@Model.Budget</p>
                     </div>
                 </div>
             </div>
@@ -63,8 +64,23 @@
             </a>
         </div>
     </div>
-
 }
+
+
+<section class="jumbotron text-center">
+    <input id="countdown-value" type="hidden" value="@Model.TravelDateStart" />
+    <div id="countdown-timer" class="container">
+        <h1>Vacation Countdown</h1>
+        <ul>
+            <li><span id="days"></span>days</li>
+            <li><span id="hours"></span>Hours</li>
+            <li><span id="minutes"></span>Minutes</li>
+            <li><span id="seconds"></span>Seconds</li>
+        </ul>
+    </div>
+</section>
+
+
 
 
 @section jumbotron{
@@ -107,7 +123,7 @@
                 @Html.DisplayFor(modelItem => item.DepartureDate)
             </dd>
             <dt class="col-sm-2">
-                Airfare:
+                Total Airfare:
             </dt>
             <dd class="col-sm-10">
                 $@Html.DisplayFor(modelItem => item.Fare)
@@ -117,6 +133,7 @@
                     @Html.DisplayFor(modelItem => item.Itinerary.Id)
                 </p>*@
         </dl>
+        <input id="flightFare" type="hidden" value="@item.Fare" />
         <div>
             <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -165,16 +182,18 @@
                 @Html.DisplayFor(modelItem => dateEndHotel)
             </dd>
             <dt class="col-sm-2">
-                Rate:
+                Total Cost:
             </dt>
             <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.NightlyRate)/Night
+                $@Html.DisplayFor(modelItem => item.NightlyRate)
             </dd>
             @*
                 <p>
                     @Html.DisplayFor(modelItem => item.Itinerary.Id)
                 </p>*@
         </dl>
+        <input id="hotelRate" type="hidden" value="@item.NightlyRate" />
+
         <div>
             <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
             <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
@@ -237,6 +256,7 @@
         }
     </div>
 </section>
+
 
 
 
