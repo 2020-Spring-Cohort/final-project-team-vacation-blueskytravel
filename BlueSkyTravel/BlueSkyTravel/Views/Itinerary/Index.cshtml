@@ -4,55 +4,68 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
 
 
-    <div id="itinerary" class="container">
+<div id="itinerary" class="container">
 
-        <h1 class=itinerary>Your Itineraries</h1>
+    <h1 class=itinerary>Your Itineraries</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-              
-        
-        @foreach (var item in Model)
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
 
-            {   
-            <div class="itin">
-                <div class="additional">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
-                <div class="more-info">
-                    <h1>@item.TripName</h1>
-                    <div class="coords">
-                        <span>Destination</span>
-                        <span>@item.Destination</span>
-                    </div>
-                    <div class="coords">
-                        <span>Budget</span>
-                        <span>@item.Budget</span>
-                    </div>
-                    <div class="coords">
-                        <span>Trip Dates</span>
-                        <span>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</span>
-                    </div>
-                    <div class="stats flex-row-reverse">
-                        menu here
-                    </div>
+
+    @foreach (var item in Model)
+
+    {
+    <div class="itin">
+        <div class="additional">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
+            <div class="more-info">
+                <h1>@item.TripName</h1>
+                <div class="coords">
+                    <span>Destination</span>
+                    <span>@item.Destination</span>
                 </div>
+                <div class="coords">
+                    <span>Budget</span>
+                    <span>@item.Budget</span>
                 </div>
-                <div class="general">
-                    <h1>@item.TripName</h1>
-                    <h2>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</h2>
-                  <span class="more">Mouse over the card for more info</span>
+                <div class="coords">
+                    <span>Trip Dates</span>
+                    <span>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</span>
                 </div>
-              </div>
-        }
+                <div class="stats flex-row-reverse">
+                      <ul class="nav nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Itinerary Actions</a>
+                            <div class="dropdown-menu">
+                           
+                              <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                              <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                            </div>
+                          </li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="general">
+            <h1>@item.TripName</h1>
+            <h2>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</h2>
+            <span class="more">Mouse over the card for more info</span>
+        </div>
+    </div>
+    }
 
 
-        @*@foreach (var item in Model)
+@*@foreach (var item in Model)
 {
         
       
@@ -70,24 +83,11 @@
             <div class="bottom">
                 Trip Dates: @Html.DisplayFor(modelItem => dateStart) -  @Html.DisplayFor(modelItem => dateEnd) ||   
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Itinerary Actions</a>
-                            <div class="dropdown-menu">
-                           
-                              <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                              <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
-
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-
-                            </div>
-                          </li>
-                        </ul>
+            
             </div>
         </div>
         }*@
 
 
-    </div>
+</div>
 
