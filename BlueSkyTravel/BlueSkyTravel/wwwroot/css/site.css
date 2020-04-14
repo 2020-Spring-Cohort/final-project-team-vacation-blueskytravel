@@ -1,5 +1,13 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.618em;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
 html body {
 height: 100%;
 width: 100%;
@@ -622,4 +630,8 @@ blockquote {
         border-width: 10px 15px 10px 0;
         border-color: transparent #f5f5f5 transparent transparent;
     }
+}
+
+#about, #philanthropy, #itinerary{
+    margin-top: 8rem!important;
 }
