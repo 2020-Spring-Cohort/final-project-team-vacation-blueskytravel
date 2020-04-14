@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 }
 
 
@@ -15,14 +16,46 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
-
-
+              
+        
         @foreach (var item in Model)
+
+            {   
+            <div class="itin">
+                <div class="additional">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
+                <div class="more-info">
+                    <h1>@item.TripName</h1>
+                    <div class="coords">
+                        <span>Destination</span>
+                        <span>@item.Destination</span>
+                    </div>
+                    <div class="coords">
+                        <span>Budget</span>
+                        <span>@item.Budget</span>
+                    </div>
+                    <div class="coords">
+                        <span>Trip Dates</span>
+                        <span>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</span>
+                    </div>
+                    <div class="stats flex-row-reverse">
+                        menu here
+                    </div>
+                </div>
+                </div>
+                <div class="general">
+                    <h1>@item.TripName</h1>
+                    <h2>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</h2>
+                  <span class="more">Mouse over the card for more info</span>
+                </div>
+              </div>
+        }
+
+
+        @*@foreach (var item in Model)
 {
         
-        var dateStart = item.TravelDateStart.ToString("MM/dd/yyyy");
-        var dateEnd = item.TravelDateFinish.ToString("MM/dd/yyyy");
+      
 
         <div class="media">
 
@@ -53,7 +86,7 @@
                         </ul>
             </div>
         </div>
-        }
+        }*@
 
 
     </div>
