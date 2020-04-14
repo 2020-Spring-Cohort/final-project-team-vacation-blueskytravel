@@ -65,24 +65,20 @@
     </div>
 }
 
-
-<section class="jumbotron text-center">
-    <input id="countdown-value" type="hidden" value="@Model.TravelDateStart" />
-    <div id="countdown-timer" class="container">
-        <h1>Vacation Countdown</h1>
-        <ul>
-            <li><span id="days"></span>days</li>
-            <li><span id="hours"></span>Hours</li>
-            <li><span id="minutes"></span>Minutes</li>
-            <li><span id="seconds"></span>Seconds</li>
-        </ul>
-    </div>
-</section>
-
-
-
-
 @section jumbotron{
+    <section class="jumbotron text-center">
+        <input id="countdown-value" type="hidden" value="@Model.TravelDateStart" />
+        <div id="countdown-timer" class="container">
+            <h1>Vacation Countdown</h1>
+            <ul>
+                <li><span id="days"></span>days</li>
+                <li><span id="hours"></span>Hours</li>
+                <li><span id="minutes"></span>Minutes</li>
+                <li><span id="seconds"></span>Seconds</li>
+            </ul>
+        </div>
+    </section>
+
     <section class="jumbotron text-center">
         <div class="container">
             <h2>Flight Plan: @Model.TripName</h2>
@@ -96,47 +92,48 @@
     <hr />
     @foreach (var item in Model.Flights)
     {
-        <dl class="row">
-            <dt class="col-sm-2">
-                Airline:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.AirlineName)
-            </dd>
-            <dt class="col-sm-2">
-                Flight Number:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.FlightNumber)
-            </dd>
-            <dt class="col-sm-2">
-                Arrival:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.ArrivalDate)
-            </dd>
-            <dt class="col-sm-2">
-                Departure:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.DepartureDate)
-            </dd>
-            <dt class="col-sm-2">
-                Total Airfare:
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.Fare)
-            </dd>
-            @*
-                <p>
-                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
-                </p>*@
-        </dl>
-        <input id="flightFare" type="hidden" value="@item.Fare" />
-        <div>
-            <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Airline:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.AirlineName)
+        </dd>
+        <dt class="col-sm-2">
+            Flight Number:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.FlightNumber)
+        </dd>
+        <dt class="col-sm-2">
+            Arrival:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+        </dd>
+        <dt class="col-sm-2">
+            Departure:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.DepartureDate)
+        </dd>
+        <dt class="col-sm-2">
+            Total Airfare:
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(modelItem => item.Fare)
+        </dd>
+        @*
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>*@
+    </dl>
+    //important
+    <input id="flightFare" type="hidden" value="@item.Fare" />
+    <div>
+        <a asp-controller="Flight" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+        <a asp-controller="Flight" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
     }
     <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Flight</a>
 </div>
@@ -152,51 +149,52 @@
     <hr />
     @foreach (var item in Model.Hotels)
     {
-        var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
-        var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
+    var dateStartHotel = item.CheckIn.ToString("MM/dd/yyyy");
+    var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
 
-        <dl class="row">
-            <dt class="col-sm-2">
-                Hotel:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Name)
-            </dd>
-            <dt class="col-sm-2">
-                Address:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Address)
-            </dd>
-            <dt class="col-sm-2">
-                Check-In:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => dateStartHotel)
-            </dd>
-            <dt class="col-sm-2">
-                Check-Out:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => dateEndHotel)
-            </dd>
-            <dt class="col-sm-2">
-                Total Cost:
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.NightlyRate)
-            </dd>
-            @*
-                <p>
-                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
-                </p>*@
-        </dl>
-        <input id="hotelRate" type="hidden" value="@item.NightlyRate" />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Hotel:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Address:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => item.Address)
+        </dd>
+        <dt class="col-sm-2">
+            Check-In:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => dateStartHotel)
+        </dd>
+        <dt class="col-sm-2">
+            Check-Out:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(modelItem => dateEndHotel)
+        </dd>
+        <dt class="col-sm-2">
+            Total Cost:
+        </dt>
+        <dd class="col-sm-10">
+            $@Html.DisplayFor(modelItem => item.NightlyRate)
+        </dd>
+        @*
+            <p>
+                @Html.DisplayFor(modelItem => item.Itinerary.Id)
+            </p>*@
+    </dl>
+    //important
+    <input id="hotelRate" type="hidden" value="@item.NightlyRate" />
 
-        <div>
-            <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
+    <div>
+        <a asp-controller="Hotel" asp-action="Update" asp-route-id="@item.Id">Update</a> |
+        <a asp-controller="Hotel" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
     }
     <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Hotel</a>
 </div>
@@ -217,41 +215,42 @@
         @foreach (var item in Model.ForFuns)
         {
 
-            <div class="timeline-item">
-                <div class="timeline-img"></div>
-                <div class="timeline-content timeline-card js--fadeInRight">
-                    <div class="timeline-img-header">
-                        <h2>@item.Name</h2>
+        <div class="timeline-item">
+            <div class="timeline-img"></div>
+            <div class="timeline-content timeline-card js--fadeInRight">
+                <div class="timeline-img-header">
+                    <h2>@item.Name</h2>
+                </div>
+                <div class="date">@item.EventTime</div>
+                <h3>Location: @item.Location</h3>
+                <h4 class="pt-2">Event Cost: $@item.Fare</h4>
+                    <input id="activityFare" type="hidden" value="@item.Fare" />
+                <h5 class="pt-2">Approved: @item.IsApproved</h5>
+                <div class="row pl-4 vote">
+                    <div class="col-6">
+                        Like Count: @item.Like
                     </div>
-                    <div class="date">@item.EventTime</div>
-                    <h3>Location: @item.Location</h3>
-                    <h4 class="pt-2">Event Cost: $@item.Fare</h4>
-                    <h5 class="pt-2">Approved: @item.IsApproved</h5>
-                    <div class="row pl-4 vote">
-                        <div class="col-6">
-                            Like Count: @item.Like
-                        </div>
-                        <div class="col-6">
-                            Dislike Count: @item.Dislike
-                        </div>
-                    </div>
-
-                    <div class="d-flex flex-row-reverse">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Action</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                                    @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
-                                    @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="col-6">
+                        Dislike Count: @item.Dislike
                     </div>
                 </div>
+
+                <div class="d-flex flex-row-reverse">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Action</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
         }
     </div>
 </section>
