@@ -186,37 +186,56 @@
 <section class="jumbotron text-center">
     <div class="container">
         <h2>Activities: @Model.TripName</h2>
+
+        <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add An Activity</a>
     </div>
 </section>
 
 
 
 
-<section id=timeline>
-    <h1>@Model.TripName Activity Timeline</h1>
-    <p class="leader">Have Fun and Plan on!!</p>
-    <div class="demo-card-wrapper">
-
+<section class="timeline">
+    <div class="container">
         @foreach (var item in Model.ForFuns)
         {
 
-            <div class="demo-card demo-card--step1 even">
-                <div class="head">
-                    <div class="number-box">
-                        <span>01</span>
+            <div class="timeline-item">
+                <div class="timeline-img"></div>
+                <div class="timeline-content timeline-card js--fadeInRight">
+                    <div class="timeline-img-header">
+                        <h2>@item.Name</h2>
                     </div>
-                    <h2><span class="small">Subtitle</span> Technology</h2>
-                </div>
-                <div class="body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
-                    <img src="http://placehold.it/1000x500" alt="Graphic">
+                    <div class="date">@item.EventTime</div>
+                    <h3>Location: @item.Location</h3>
+                    <h4 class="pt-2">Event Cost: $@item.Fare</h4>
+                    <h5 class="pt-2">Approved: @item.IsApproved</h5>
+                    <div class="row pl-4 vote">
+                        <div class="col-6">
+                            Like Count: @item.Like
+                        </div>
+                        <div class="col-6">
+                            Dislike Count: @item.Dislike
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row-reverse">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Action</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                    @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+                                    @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
         }
-
     </div>
-
 </section>
 
 
@@ -228,86 +247,6 @@
 
 
 
-<div class="itinerary-items" id="activities">
-    <h4>Plans</h4>
-    <hr />
-    @foreach (var item in Model.ForFuns)
-    {
-
-        cssCounter++;
-
-        @cssCounter
-
-        <dl class="row">
-            <dt class="col-sm-2">
-                Activity:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Name)
-            </dd>
-            <dt class="col-sm-2">
-                Date and Time:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.EventTime)
-            </dd>
-            <dt class="col-sm-2">
-                Cost:
-            </dt>
-            <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.Fare) per Person
-            </dd>
-            <dt class="col-sm-2">
-                Approval:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.IsApproved)
-            </dd>
-            <dt class="col-sm-2">
-                Location:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Location)
-            </dd>
-            <dt class="col-sm-2">
-                Likes:
-            </dt>
-            <dd id="likes" class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Like)
-            </dd>
-            <dt class="col-sm-2">
-                Dislikes:
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.Dislike)
-            </dd>
-            @*
-                <p>
-                    @Html.DisplayFor(modelItem => item.Itinerary.Id)
-                </p>*@
-        </dl>
-        @*<div class="fb-like" data-href="https://localhost:44387" data-width="60" data-layout="button" data-action="like" data-size="large" data-share="false"></div>*@
-        <div>
-            <a asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a> |
-            <a asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            <br />
-            @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
-            <br />
-            @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id })
-        </div>
-    }
-
-    <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add An Activity</a>
-</div>
 
 
 
-
-
-<div id="slidebox">
-    <a class="close"></a>
-    <h2 class="everything">Click to Call Us <a href="callto://+15555555555"> + 1 555-556-5555</a></h2>
-    <h2 class="mobile">Tap to Call Us <a href="tel:+15555555555"> + 1 555-556-5555</a></h2>
-    <p>or click Get Started to and plan your Trip Today!</p>
-    <a asp-action="Register" asp-controller="Account" class="nav-link text-dark">Get Started »</a>
-</div>
