@@ -98,16 +98,16 @@ namespace BlueSkyTravel.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "14f7f6c9-d19e-41ae-9d30-df931d60e9a3",
+                            Id = "824c2bb8-3dda-42b8-96b3-3e380357935e",
                             AccessFailedCount = 0,
                             City = "Akron",
-                            ConcurrencyStamp = "87460bb9-2c48-431c-b873-3e338d5a4aab",
+                            ConcurrencyStamp = "0a439e53-161c-4ec3-bc5f-8f1d8fd03bfe",
                             EmailConfirmed = false,
                             FirstName = "Tom",
                             LastName = "Shaw",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8406828e-ec5f-4cce-bee3-429632b82a70",
+                            SecurityStamp = "7dce0ad6-3eab-44a5-88e9-722223a1f6b2",
                             State = "Ohio",
                             TwoFactorEnabled = false
                         });
@@ -149,8 +149,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             AirlineName = "WCCI AIR",
-                            ArrivalDate = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            DepartureDate = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            ArrivalDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            DepartureDate = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 426.0,
                             FlightNumber = "WCCI-2020",
                             ItineraryId = 1
@@ -164,6 +164,9 @@ namespace BlueSkyTravel.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Dislike")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EventTime")
                         .HasColumnType("datetime2");
 
@@ -174,6 +177,9 @@ namespace BlueSkyTravel.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int>("ItineraryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Like")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
@@ -192,10 +198,12 @@ namespace BlueSkyTravel.Migrations
                         new
                         {
                             Id = 1,
-                            EventTime = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            Dislike = 0,
+                            EventTime = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             Fare = 100.0,
                             IsApproved = false,
                             ItineraryId = 1,
+                            Like = 0,
                             Location = "Paris, France",
                             Name = "Disneyland"
                         });
@@ -237,8 +245,8 @@ namespace BlueSkyTravel.Migrations
                         {
                             Id = 1,
                             Address = "221B Baker Street",
-                            CheckIn = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            CheckOut = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckIn = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            CheckOut = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
                             ItineraryId = 1,
                             Name = "Holiday Inn",
                             NightlyRate = 150.0
@@ -277,36 +285,9 @@ namespace BlueSkyTravel.Migrations
                             Id = 1,
                             Budget = 1500.0,
                             Destination = "London, UK",
-                            TravelDateFinish = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local),
-                            TravelDateStart = new DateTime(2020, 4, 6, 0, 0, 0, 0, DateTimeKind.Local)
-                        });
-                });
-
-            modelBuilder.Entity("BlueSkyTravel.Models.Vote", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("ForFunId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("VoteChoice")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ForFunId");
-
-                    b.ToTable("Votes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ForFunId = 1,
-                            VoteChoice = true
+                            TravelDateFinish = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            TravelDateStart = new DateTime(2020, 4, 13, 0, 0, 0, 0, DateTimeKind.Local),
+                            TripName = "My Europe Trip"
                         });
                 });
 
@@ -464,15 +445,6 @@ namespace BlueSkyTravel.Migrations
                     b.HasOne("BlueSkyTravel.Models.Itinerary", "Itinerary")
                         .WithMany("Hotels")
                         .HasForeignKey("ItineraryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BlueSkyTravel.Models.Vote", b =>
-                {
-                    b.HasOne("BlueSkyTravel.Models.ForFun", "ForFun")
-                        .WithMany("Votes")
-                        .HasForeignKey("ForFunId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

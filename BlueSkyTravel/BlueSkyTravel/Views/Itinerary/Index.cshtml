@@ -1,67 +1,60 @@
 ﻿@model IEnumerable<BlueSkyTravel.Models.Itinerary>
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Your Itineraries</h1>
+
+
+    <div id="itinerary" class="container">
+
+        <h1 class=itinerary>Your Itineraries</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Vacation
-                @*@Html.DisplayNameFor(model => model.TripName)*@
-            </th>
-            <th>
-                Trip Begins
-                @*@Html.DisplayNameFor(model => model.TravelDateStart)*@
-            </th>
-            <th>
-                Trip Ends
-                @*@Html.DisplayNameFor(model => model.TravelDateFinish)*@
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Destination)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Budget)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
 
-    var dateStart = item.TravelDateStart.ToString("MM/dd/yyyy");
-    var dateEnd = item.TravelDateFinish.ToString("MM/dd/yyyy");
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TripName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => dateStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => dateEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destination)
-            </td>
-            <td>
-                $@Html.DisplayFor(modelItem => item.Budget)
-            </td>
-            <td>
-                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+        @foreach (var item in Model)
+{
+        
+        var dateStart = item.TravelDateStart.ToString("MM/dd/yyyy");
+        var dateEnd = item.TravelDateFinish.ToString("MM/dd/yyyy");
+
+        <div class="media">
+
+            <div class="img">
+                <img src="http://placehold.it/250x250" alt="Placeholder">
+            </div>
+            <h2 class="title">@Html.DisplayFor(modelItem => item.TripName)</h2>
+            <div class="content">
+             <h3>Destination: @Html.DisplayFor(modelItem => item.Destination)</h3>
+             <h4>Budget: $@Html.DisplayFor(modelItem => item.Budget)  </h4>
+            </div>
+            <div class="bottom">
+                Trip Dates: @Html.DisplayFor(modelItem => dateStart) -  @Html.DisplayFor(modelItem => dateEnd) ||   
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Itinerary Actions</a>
+                            <div class="dropdown-menu">
+                           
+                              <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                              <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                            </div>
+                          </li>
+                        </ul>
+            </div>
+        </div>
+        }
+
+
+    </div>
+

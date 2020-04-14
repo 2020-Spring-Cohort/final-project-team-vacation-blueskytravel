@@ -4,50 +4,80 @@
 
 @{
     ViewData["Title"] = "Update";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-<h1>Update</h1>
+<div class="card bg-light mx-auto">
+    <article class="card-body mx-auto">
+        <h4 class="card-title mt-3 text-center">Update Hotel Reservation!</h4>
+        <p class="text-center">You'll never nome alone!</p>
 
-<h4>Hotel</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Update">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-hotel"></i></span>
+                </div>
+                <input asp-for="Name" class="form-control" placeholder="Hotel Name" type="text">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+                </div>
+                <input asp-for="Address" class="form-control" placeholder="Hotel Address" type="text">
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CheckIn" class="control-label">Check In</label>
-                <input asp-for="CheckIn" class="form-control" />
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                </div>
+                <input asp-for="CheckIn" class="form-control" placeholder="Check In Date" type="datetime-local">
+                <br />
                 <span asp-validation-for="CheckIn" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CheckOut" class="control-label">Check Out</label>
-                <input asp-for="CheckOut" class="form-control" />
+
+
+            <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-calendar-alt"></i> </span>
+                </div>
+                <input asp-for="CheckOut" class="form-control" placeholder="Check Out Date" type="datetime-local">
+                <br />
                 <span asp-validation-for="CheckOut" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="NightlyRate" class="control-label">Nightly Rate</label>
-                <input asp-for="NightlyRate" class="form-control" />
+
+
+            <!-- form-group end.// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <input asp-for="NightlyRate" class="form-control" placeholder="Nightly Rate" type="text">
+                <br />
                 <span asp-validation-for="NightlyRate" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="hidden" asp-for="ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@Model.ItineraryId">Back to List</a>
+            <!-- form-group// -->
+            <div class="form-group">
+                <button type="submit" value="Save" class="btn btn-primary btn-block"> Update Hotel Reservation </button>
+            </div>
+
+            <!-- form-group// -->
+            <a asp-controller="Itinerary" asp-action="Details" asp-route-id="@Model.ItineraryId">Back to Itinerary</a>
+        </form>
+    </article>
 </div>
 
 @section Scripts {
