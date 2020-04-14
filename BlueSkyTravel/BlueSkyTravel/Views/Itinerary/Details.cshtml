@@ -123,7 +123,7 @@
                 @Html.DisplayFor(modelItem => item.DepartureDate)
             </dd>
             <dt class="col-sm-2">
-                Airfare:
+                Total Airfare:
             </dt>
             <dd class="col-sm-10">
                 $@Html.DisplayFor(modelItem => item.Fare)
@@ -182,10 +182,10 @@
                 @Html.DisplayFor(modelItem => dateEndHotel)
             </dd>
             <dt class="col-sm-2">
-                Rate:
+                Total Cost:
             </dt>
             <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.NightlyRate)/Night
+                $@Html.DisplayFor(modelItem => item.NightlyRate)
             </dd>
             @*
                 <p>
@@ -274,7 +274,7 @@
                 Cost:
             </dt>
             <dd class="col-sm-10">
-                $@Html.DisplayFor(modelItem => item.Fare) per Person
+                $@Html.DisplayFor(modelItem => item.Fare)
             </dd>
             <dt class="col-sm-2">
                 Approval:
