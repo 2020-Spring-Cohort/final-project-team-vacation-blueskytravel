@@ -86,10 +86,43 @@
     </section>
 }
 
-
 <div class="itinerary-items" id="flights">
-    <h4>Flight Plan</h4>
-    <hr />
+    
+    @foreach (var item in Model.Flights)
+    {
+    <div class="itin">
+        <div class="additional">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
+            <div class="more-info">
+                <h1>Flight Information</h1>
+                <div class="coords">
+                    <span>Airline Name</span>
+                    <span>@item.AirlineName</span>
+                </div>
+                <div class="coords">
+                    <span>Flight Number</span>
+                    <span>@item.FlightNumber</span>
+                </div>
+                <div class="coords">
+                    <span>Airfare</span>
+                    <span>@item.Fare</span>
+                </div>
+                <div class="coords">
+                    <span>Arrival/Departure Dates</span>
+                    <span>@item.ArrivalDate - @item.DepartureDate</span>
+                </div>
+                <div class="stats flex-row-reverse">
+                    menu here
+                </div>
+            </div>
+        </div>
+        <div class="general">
+            <h1>Flight</h1>
+            <h2>@item.ArrivalDate - @item.DepartureDate</h2>
+            <span class="more">Mouse over the card for more info</span>
+        </div>
+    </div>
+    }
     @foreach (var item in Model.Flights)
     {
     <dl class="row">
