@@ -104,12 +104,12 @@
                     <span>@item.AirlineName</span>
                 </div>
                 <div class="coords">
-                    <span>Airfare</span>
-                    <span>@item.Fare</span>
+                    <span>Arrival -> Departure</span>
+                    <span>@item.ArrivalDate.ToString("MM/dd/yyyy") - @item.DepartureDate.ToString("MM/dd/yyyy")</span>
                 </div>
                 <div class="coords">
-                    <span>Arrival/Departure Dates</span>
-                    <span>@item.ArrivalDate - @item.DepartureDate</span>
+                    <span>Airfare</span>
+                    <span>$@item.Fare</span>
                 </div>
                 <div class="stats flex-row-reverse">
                     <ul class="nav nav-pills">
@@ -128,8 +128,8 @@
             </div>
         </div>
         <div class="general">
-            <h1>@item.FlightNumber</h1>
-            <h2>@item.ArrivalDate - @item.DepartureDate</h2>
+            <h1>Flight Number: @item.FlightNumber</h1>
+            <h2>@item.ArrivalDate.ToString("MM/dd/yyyy") - Departure: @item.DepartureDate.ToString("MM/dd/yyyy")</h2>
             <span class="more">Mouse Over for Details</span>
             <input id="flightFare" type="hidden" value="@item.Fare" />
         </div>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="coords">
                         <span>Total Rate</span>
-                        <span>@item.NightlyRate</span>
+                        <span>$@item.NightlyRate</span>
                     </div>
                     <div class="stats flex-row-reverse">
                         <ul class="nav nav-pills">
