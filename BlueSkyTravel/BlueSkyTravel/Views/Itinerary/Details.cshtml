@@ -85,7 +85,7 @@
     <div class="container">
         <h2>Flights: @Model.TripName</h2>
 
-        <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Flight</a>
+        <a asp-controller="Flight" asp-action="CreateByItineraryId" asp-route-id="@Model.Id" class="btn btn-primary my-2">Add A Flight</a>
     </div>
 </section>
 
@@ -141,7 +141,7 @@
     <div class="container">
         <h2>Resort Reservation: @Model.TripName</h2>
 
-        <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add A Hotel</a>
+        <a asp-controller="Hotel" asp-action="CreateByItineraryId" asp-route-id="@Model.Id" class="btn btn-primary my-2">Add A Hotel</a>
     </div>
 </section>
 
@@ -197,7 +197,7 @@
     <div class="container">
         <h2>Activities: @Model.TripName</h2>
 
-        <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id">Add An Activity</a>
+        <a asp-controller="ForFun" asp-action="CreateByItineraryId" asp-route-id="@Model.Id" class="btn btn-primary my-2">Add An Activity</a>
     </div>
 </section>
 

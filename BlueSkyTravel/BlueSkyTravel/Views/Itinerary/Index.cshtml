@@ -13,12 +13,13 @@
 
     <h1 class=itinerary>Your Itineraries</h1>
 
-    <p>
-        <a asp-action="Create">Create New</a>
+    <p class="create-new-itin">
+        <a asp-action="Create" class="btn btn-primary my-2">Add a New Itinerary</a>
     </p>
 
 
     @foreach (var item in Model)
+    
 
     {
     <div class="itin">
@@ -39,20 +40,20 @@
                     <span>@item.TravelDateStart.ToString("MM/dd/yyyy") - @item.TravelDateFinish.ToString("MM/dd/yyyy")</span>
                 </div>
                 <div class="stats flex-row-reverse">
-                      <ul class="nav nav-pills">
-                    <li class="nav-item dropup">
-                        <a class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item dropup">
+                            <a class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
                             <div class="dropdown-menu">
-                           
-                              <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                              <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
 
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                <a class="dropdown-item" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 
                             </div>
-                          </li>
-                        </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -63,31 +64,5 @@
         </div>
     </div>
     }
-
-
-@*@foreach (var item in Model)
-{
-        
-      
-
-        <div class="media">
-
-            <div class="img">
-                <img src="http://placehold.it/250x250" alt="Placeholder">
-            </div>
-            <h2 class="title">@Html.DisplayFor(modelItem => item.TripName)</h2>
-            <div class="content">
-             <h3>Destination: @Html.DisplayFor(modelItem => item.Destination)</h3>
-             <h4>Budget: $@Html.DisplayFor(modelItem => item.Budget)  </h4>
-            </div>
-            <div class="bottom">
-                Trip Dates: @Html.DisplayFor(modelItem => dateStart) -  @Html.DisplayFor(modelItem => dateEnd) ||   
-
-            
-            </div>
-        </div>
-        }*@
-
-
 </div>
 

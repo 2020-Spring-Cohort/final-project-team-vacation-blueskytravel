@@ -217,6 +217,7 @@ a.btn-Google, button.btn.btn-Google {
     
     padding: 2em;
     margin: 3em auto;
+    
 }
     .itinerary-items > .itinerary-headers{
         text-align:center;
@@ -460,7 +461,12 @@ img {
 h1.itinerary
 {
     padding-top: 2rem;
+    text-align: center;
    
+}
+
+.create-new-itin{
+    text-align: center;
 }
 
 
@@ -673,7 +679,7 @@ blockquote {
     border-radius: 6px;
     overflow: hidden;
     position: relative;
-    margin: 1.5rem;
+    margin: 1.5rem auto;
 }
 
     .itin h1, .itin h2 {
@@ -837,5 +843,3 @@ blockquote {
         }
 
 
-
-       
