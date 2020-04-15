@@ -47,7 +47,7 @@
                         <h1>Itinerary: @Model.TripName</h1>
                         <h2>Destination: @Html.DisplayFor(model => model.Destination)</h2>
                         <h3>Travel Dates: @Html.DisplayFor(model => dateStartValue) - @Html.DisplayFor(model => dateEndValue)</h3>
-                        <span id="budget" value="@Model.Budget">Max Budget: $@Html.DisplayFor(model => model.Budget) | </span>
+                        <span id="budget" value="@Model.Budget">Max Budget: $@Html.DisplayFor(model => model.Budget).00  |  </span>
                         <span id="balance">@Model.Budget</span>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
     {
     <div class="itin">
         <div class="additional">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
+            <img src="https://www.imore.com/sites/imore.com/files/styles/xlarge/public/field/image/2017/02/airplane-flight-sunset.jpg?itok=8iUtkHU-" />
             <div class="more-info">
                 <h1>@item.FlightNumber</h1>
                 <div class="coords">
@@ -152,7 +152,7 @@
         var dateEndHotel = item.CheckOut.ToString("MM/dd/yyyy");
         <div class="itin">
             <div class="additional">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Seattle_Kerry_Park_Skyline.jpg/1200px-Seattle_Kerry_Park_Skyline.jpg">
+                <img src="https://q-cf.bstatic.com/images/hotel/max1024x768/681/68184730.jpg">
                 <div class="more-info">
                     <h1>@item.Name</h1>
                     <div class="coords">
@@ -240,8 +240,13 @@
                             <a class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Options</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="ForFun" asp-action="Update" asp-route-id="@item.Id">Update</a>
-                                @Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
-                                @Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+
+                                @if (!item.IsApproved)
+                {
+
+
+@Html.ActionLink("Like", "CountLikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })@Html.ActionLink("Dislike", "CountDislikes", "ForFun", new { funid = item.Id, itinId = item.Itinerary.Id }, new { @class = "dropdown-item" })
+                }
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-controller="ForFun" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                             </div>
