@@ -52,29 +52,26 @@ namespace BlueSkyTravel
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            googleClientId = Configuration["Authentication:Google:ClientId"];
-            googleClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            services.AddAuthentication();
+                //.AddGoogle(googleOptions =>
+                //{
+                //    IConfigurationSection googleAuthNSection =
+                //Configuration.GetSection("Authentication:Google");
 
-            services.AddAuthentication()
-                .AddGoogle(googleOptions =>
-                {
-                    IConfigurationSection googleAuthNSection =
-                Configuration.GetSection("Authentication:Google");
-
-                    googleOptions.ClientId = googleAuthNSection["ClientId"];
-                    googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
-                })
-                .AddTwitter(twitterOptions => 
-                {
-                    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
-                    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
-                    twitterOptions.RetrieveUserDetails = true;
-                })
-                .AddFacebook(facebookOptions => 
-                {
-                    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                });
+                //    googleOptions.ClientId = googleAuthNSection["ClientId"];
+                //    googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+                //})
+                //.AddTwitter(twitterOptions => 
+                //{
+                //    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
+                //    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
+                //    twitterOptions.RetrieveUserDetails = true;
+                //})
+                //.AddFacebook(facebookOptions => 
+                //{
+                //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                //});
 
             //services.AddAuthentication()
             //    .AddGoogle(options =>
