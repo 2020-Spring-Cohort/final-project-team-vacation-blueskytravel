@@ -63,6 +63,10 @@
                 <span asp-validation-for="IsApproved" class="text-danger"></span>
             </div>
 
+            <input type="hidden" value="@Model.Like" asp-for="Like" />
+            <input type="hidden" value="@Model.Dislike" asp-for="Dislike" />
+
+
             <div class="form-group">
                 <input type="hidden" asp-for="ItineraryId" class="form-control" asp-items="ViewBag.ItineraryId" />
             </div>

@@ -2,7 +2,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = @Model.TripName + " Itinerary";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     var dateStartValue = Model.TravelDateStart.ToString("MM/dd/yyyy");
@@ -13,7 +13,7 @@
 @section additionalNav{
 
     <li class="nav-item dropdown">
-        <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @Model.TripName
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -219,7 +219,12 @@
                 <h3>Location: @item.Location</h3>
                 <h4 class="pt-2">Event Cost: $@item.Fare</h4>
                     <input id="activityFare" type="hidden" value="@item.Fare" />
-                <h5 class="pt-2">Approved: @item.IsApproved</h5>
+                @if(item.IsApproved){
+                <h5 class="pt-2">This activity is confirmed!</h5>
+                }
+                else{
+                <h5 class="pt-2">This activity is not yet confirmed.</h5>
+                }
                 <div class="row pl-4 vote">
                     <div class="col-6">
                         Like Count: @item.Like
