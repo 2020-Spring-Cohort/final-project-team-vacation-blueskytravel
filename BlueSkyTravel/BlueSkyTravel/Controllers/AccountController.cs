@@ -68,7 +68,7 @@ namespace BlueSkyTravel.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, isPersistent: true);
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("AboutUs", "Home");
                 }
 
                 foreach (var error in result.Errors)
@@ -98,11 +98,11 @@ namespace BlueSkyTravel.Controllers
                 {
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
-                        return Redirect(returnUrl);
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                        return RedirectToAction("index", "home");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
 
@@ -272,10 +272,8 @@ namespace BlueSkyTravel.Controllers
 
             //return View("Login", loginViewModel);
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+
+ 
 
 
     }

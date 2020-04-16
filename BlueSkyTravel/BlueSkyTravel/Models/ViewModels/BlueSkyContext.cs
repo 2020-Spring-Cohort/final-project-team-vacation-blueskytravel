@@ -23,7 +23,9 @@ namespace BlueSkyTravel
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=BlueSkyTravel;Trusted_Connection=True;";
+            //var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=BlueSkyTravel;Trusted_Connection=True;";
+
+            var connectionString = "Server=tcp:blueskytravel20200415162537dbserver.database.windows.net,1433;Initial Catalog=BlueSkyTravel20200415162537_db;Persist Security Info=False;User ID=blueskyadmin;Password=BlueSky11!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             optionsBuilder.UseSqlServer(connectionString)
                 .UseLazyLoadingProxies();

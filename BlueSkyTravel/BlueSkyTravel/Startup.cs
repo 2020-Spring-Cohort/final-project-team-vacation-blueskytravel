@@ -73,26 +73,7 @@ namespace BlueSkyTravel
                 //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                 //});
 
-            //services.AddAuthentication()
-            //    .AddGoogle(options =>
-            //    {
-            //        options.ClientId = googleClientId;
-            //        options.ClientSecret = googleClientSecret;
-            //    })
-            //    .AddFacebook(options =>
-            //    {
-            //        options.AppId = Configuration["Authentication:Facebook:AppId"];
-            //        ;
-            //        options.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-            //        ;
-            //    })
-            //    .AddTwitter(options =>
-            //    {
-            //        options.ConsumerKey = "fMMpNfnH3oDzdXSJ0fq558fow";
-            //        options.ConsumerSecret = "cBeCunIByEJzrQuf42jWmDRcYMCoJARUhb4ARRcj6TDmDG2kmI";
-            //        options.RetrieveUserDetails = true;
-            //    });
-
+       
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();

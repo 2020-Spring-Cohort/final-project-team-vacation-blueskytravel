@@ -20,7 +20,7 @@ namespace BlueSkyTravel.Controllers
         }
 
         // GET: Itinerary
-        [Authorize]
+        //[Authorize]
         public ViewResult Index()
         {
             var model = itineraryRepo.GetAll();

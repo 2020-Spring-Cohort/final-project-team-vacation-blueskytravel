@@ -11,7 +11,7 @@ namespace BlueSkyTravel.Models
     {
         [Required]
         [EmailAddress]
-        [Remote(action: "IsEmailInUse", controller: "Account")]
+        //[Remote(action: "IsEmailInUse", controller: "Account")]
         public string Email { get; set; }
 
         [Required]
