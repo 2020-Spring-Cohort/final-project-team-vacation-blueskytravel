@@ -52,28 +52,34 @@ namespace BlueSkyTravel
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
-            services.AddAuthentication();
-                //.AddGoogle(googleOptions =>
-                //{
+            services.AddAuthentication()
+            .AddGoogle(googleOptions =>
+            {
                 //    IConfigurationSection googleAuthNSection =
                 //Configuration.GetSection("Authentication:Google");
 
-                //    googleOptions.ClientId = googleAuthNSection["ClientId"];
-                //    googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
-                //})
-                //.AddTwitter(twitterOptions => 
-                //{
-                //    twitterOptions.ConsumerKey = Configuration["Authentication:Twitter:ConsumerAPIKey"];
-                //    twitterOptions.ConsumerSecret = Configuration["Authentication:Twitter:ConsumerSecret"];
-                //    twitterOptions.RetrieveUserDetails = true;
-                //})
-                //.AddFacebook(facebookOptions => 
-                //{
-                //    facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-                //    facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-                //});
+                googleOptions.ClientId = Configuration["GoogleClientId"];
+                //["ClientId"];
+                googleOptions.ClientSecret = Configuration["GoogleClientSecret"];
+                //["ClientSecret"];
+            })
+            .AddTwitter(twitterOptions =>
+            {
+                twitterOptions.ConsumerKey = Configuration["TwitterApiKey"];
+                //["Authentication:Twitter:ConsumerAPIKey"];
+                twitterOptions.ConsumerSecret = Configuration["TwitterSecret"];
+                //["Authentication:Twitter:ConsumerSecret"];
+                twitterOptions.RetrieveUserDetails = true;
+            })
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["FacebookAppId"];
+                //["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["FacebookAppSecret"];
+                //["Authentication:Facebook:AppSecret"];
+            });
 
-       
+
             services.AddScoped<IRepository<Itinerary>, ItineraryRepository>();
             services.AddScoped<IRepository<ForFun>, ForFunRepository>();
             services.AddScoped<IRepository<Hotel>, HotelRepository>();
